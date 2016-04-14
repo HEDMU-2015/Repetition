@@ -5,7 +5,7 @@ import java.util.List;
 
 public class PersonUtil {
 
-	public List<String> getNavneOver25(List<Person> personer) {
+	public List<String> getNamesOver25(List<Person> personer) {
 		List<String> elderThan25 = new ArrayList<String>();
 
 		for (Person person : personer) {

@@ -21,7 +21,7 @@ public class Main {
 		System.out.println(persons);
 
 		PersonUtil personUtil = new PersonUtil();
-		List<String> names = personUtil.getNavneOver25(persons);
+		List<String> names = personUtil.getNamesOver25(persons);
 		for (int i = 0; i < names.size(); i++) {
 			System.out.println(names.get(i));
 		}
