@@ -1,10 +1,13 @@
 package repetition;
 
 import java.time.LocalDate;
-import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * 
+ * @author Juyoung Choi
+ *
+ */
 public class Main {
 
 	public static void main(String[] args) {

@@ -3,6 +3,12 @@ package repetition;
 import java.time.LocalDate;
 import java.time.Period;
 
+/**
+ * 
+ * @author Juyoung Choi
+ *
+ */
+
 public class Person {
 	private String name;
 	private String email;
