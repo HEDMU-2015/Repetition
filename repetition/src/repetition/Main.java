@@ -18,7 +18,7 @@ public class Main {
 								 * denne instans af sig selv kommer der en fejl
 								 */
 
-		personer.add(p = new Person("Martin", "email@email.dk", LocalDate.of(1995, 07, 17)));
+		personer.add(p = new Person("Martin", "Martin@email.dk", LocalDate.of(1995, 07, 17)));
 		personer.add(p = new Person("Ole", "Ole@email.dk", LocalDate.of(1960, 05, 13)));
 		personer.add(p = new Person("Jens", "Jens@email.dk", LocalDate.of(1985, 12, 31)));
 		personer.add(p = new Person("Kim", "Kim@email.dk", LocalDate.of(2010, 12, 24)));
