@@ -16,9 +16,36 @@ public class Person {
 		this.birthdate = birthdate;
 	}
 	
-	public int getAge() {
-		// ?
-		return 0;
+	public String getName() {
+        return name;
+    }
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+		
+	public String getEmail() {
+		return email;
 	}
 	
-}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	public int getAge() {
+		LocalDate today = LocalDate.now();
+		int age = today.compareTo(birthdate);
+		return age;
+	}
+
+	@Override
+	public String toString() {
+		return "Person [name=" + name + ", email=" + email + ", birthdate=" + birthdate + ", getAge()=" + getAge()
+				+ "]";
+	}
+
+	
+			
+	}
+	
+
