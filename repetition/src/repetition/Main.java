@@ -6,7 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-
+	/**
+	 * @author Martin Zylauv Kristensen
+	 */
 	public static void main(String[] args) {
 		Person p;
 		List<Person> personer = new ArrayList<Person>();
