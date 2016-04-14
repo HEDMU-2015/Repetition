@@ -29,7 +29,7 @@ public class Main {
 			System.out.println(pe.toString());
 		}
 		System.out.println();
-		System.out.println("Personer older than 25:");
+		System.out.println("Persons older than 25:");
 		for (Person pe : m.elderThan25(personer)) {
 			System.out.println(pe.toString());
 		}

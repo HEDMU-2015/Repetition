@@ -48,7 +48,7 @@ public class Person {
 	}
 
 	public String toString() {
-		String toString = ">>Name: " + name + ", Email: " + email + ", age = " + getAge() + "<<";
+		String toString = ">>Name: " + name + ", Email: " + email  + ", Birthdate: "+birthdate+ ", Age: " + getAge()+"<<";
 		return toString;
 	}
 
