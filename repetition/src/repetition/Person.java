@@ -40,7 +40,7 @@ public class Person {
 
 	@Override
 	public String toString() {
-		return "Person [name=" + name + ", email=" + email + ", birthdate=" + birthdate + ", getAge()=" + getAge()
+		return "Person [navn=" + name + ", email=" + email + ", fødselsdato=" + birthdate + ", alder=" + getAge()
 				+ "]";
 	}
 
