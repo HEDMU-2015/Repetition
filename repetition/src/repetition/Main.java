@@ -14,6 +14,7 @@ public class Main {
 	
 		Main main = new Main();
 		List<Person> persons = main.lavList();
+		System.out.println(persons);
 		System.out.println(main.elderThan25(persons));
 	
 	}
