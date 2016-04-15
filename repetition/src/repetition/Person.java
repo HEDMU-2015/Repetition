@@ -1,6 +1,7 @@
 package repetition;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 public class Person {
 	private String name;
@@ -16,9 +17,12 @@ public class Person {
 		this.birthdate = birthdate;
 	}
 	
-	public int getAge() {
-		// ?
-		return 0;
+	public long getAge() {
+		LocalDate Today = LocalDate.now();
+		LocalDate tempDate = LocalDate.from(birthdate);
+		long years = tempDate.until(Today, ChronoUnit.YEARS);
+		tempDate = tempDate.plusYears(years);
+		return years;
 	}
 	
 }
