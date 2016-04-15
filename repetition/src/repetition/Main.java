@@ -19,7 +19,7 @@ public class Main {
 	
 	}
 	
-	public List<Person> elderThan25(List<Person> persons) {
+	private List<Person> elderThan25(List<Person> persons) {
 		
 		List<Person> listElderThan25 = new ArrayList<>();
 		for(Person p : persons){
