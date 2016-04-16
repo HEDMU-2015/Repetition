@@ -18,7 +18,11 @@ public class Person {
 	}
 	
 	public int getAge() {
-		return Period.between(birthdate, LocalDate.now()).getYears();
+		return Util.differenceInYears(birthdate, LocalDate.now());
+	}
+	
+	public int getAgeAt(LocalDate date) {
+		return Util.differenceInYears(birthdate, date);
 	}
 
 	public String getName() {

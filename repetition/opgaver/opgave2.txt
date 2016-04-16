@@ -1,0 +1,20 @@
+ Opgave 2 - 21. april 2016
+ 
+ Lav en ny klasse - Util - med en enkelt static metode, med følgende signatur:
+ - public static int differenceInYears(LocalDate from, LocalDate to)
+ 
+ Ret Person-klassen:
+ - getAge() skal benytte den nye Util-metode
+ - Lav en metode getAgeAt(Localdate date), som returnerer personens alder en bestemt dato
+ 
+ Ret Util-klassen:
+ - Så den erklæres public class Util<T, R>
+ - Tilføj en metode, med følgende signatur: public List<R> reduce(List<T> list, Predicate<T> predicate, Function<T, R> function)
+ - Tilføj en metode, med følgende signatur: public List<R> reduce(List<T> list, Function<T, R> function, Predicate<R> predicate)
+ - Lav begge metoder ved hjælp af Stream, filter og map
+ - Hvad er forskellen, og hvornår skal den ene bruges fremfor den anden?
+ 
+ Ret Main-klassen, og brug din Liste af personer til følgende:
+ - Udskriv en liste af personer, som alle er yngre end 30 år d. 1. januar 2020 (Brug een af reduce-metoderne ovenfor)
+ - Udskriv navnene på de personer, som er mellem 10 og 20 år d. 1. januar 2010.
+ 
