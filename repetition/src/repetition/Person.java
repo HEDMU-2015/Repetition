@@ -1,7 +1,6 @@
 package repetition;
 
 import java.time.LocalDate;
-import java.time.Period;
 
 public class Person {
 	private String name;
@@ -21,10 +20,6 @@ public class Person {
 		return Util.differenceInYears(birthdate, LocalDate.now());
 	}
 	
-	public int getAgeAt(LocalDate date) {
-		return Util.differenceInYears(birthdate, date);
-	}
-
 	public String getName() {
 		return name;
 	}
