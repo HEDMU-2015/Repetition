@@ -17,4 +17,3 @@
  Ret Main-klassen, og brug din Liste af personer til følgende:
  - Udskriv en liste af personer, som alle er yngre end 30 år d. 1. januar 2020 (Brug een af reduce-metoderne ovenfor)
  - Udskriv navnene på de personer, som er mellem 10 og 20 år d. 1. januar 2010.
- 
