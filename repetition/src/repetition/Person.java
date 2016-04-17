@@ -2,6 +2,9 @@ package repetition;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * 
@@ -49,7 +52,13 @@ public class Person {
 	}
 	
 	public int getAge(){
-		return Period.between(birthdate, LocalDate.now()).getYears();		
+		return Util.differentInYears(birthdate, LocalDate.now());
+//		return Period.between(birthdate, LocalDate.now()).getYears();		
+	}
+	
+	public int getAgeAt(LocalDate date){
+		
+		return Util.differentInYears(birthdate, date);
 	}
 
 	@Override

@@ -3,6 +3,10 @@ package repetition;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
+import sun.security.pkcs11.wrapper.Functions;
 /**
  * 
  * @author Juyoung Choi
@@ -16,20 +20,16 @@ public class Main {
 		List<Person> persons = main.lavList();
 		System.out.println(persons);
 		System.out.println(main.elderThan25(persons));
-	
+			
 	}
 	
 	private List<Person> elderThan25(List<Person> persons) {
-		
-		List<Person> listElderThan25 = new ArrayList<>();
-		for(Person p : persons){
-			if(p.getAge() > 25){
-				listElderThan25.add(p);
-			}
-		}
-		
-		return listElderThan25;
+		return persons
+				.stream()
+				.filter(person -> person.getAge()>25)
+				.collect(Collectors.toList());		
 	}
+	
 	
 	private List<Person> lavList(){
 		
