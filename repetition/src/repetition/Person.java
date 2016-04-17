@@ -48,10 +48,8 @@ public class Person {
 		this.birthdate = birthdate;
 	}
 	
-	public Period getAge(){
-		Period age = Period.between(birthdate, LocalDate.now());
-		
-		return age;		
+	public int getAge(){
+		return Period.between(birthdate, LocalDate.now()).getYears();		
 	}
 
 	@Override

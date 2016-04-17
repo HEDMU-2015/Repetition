@@ -23,7 +23,7 @@ public class Main {
 		
 		List<Person> listElderThan25 = new ArrayList<>();
 		for(Person p : persons){
-			if(p.getAge().getYears() > 25){
+			if(p.getAge() > 25){
 				listElderThan25.add(p);
 			}
 		}
