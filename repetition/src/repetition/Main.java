@@ -40,6 +40,10 @@ public class Main {
 
 		Util<Person, List<Person>> util2 = new Util<>();
 		System.out.println("UTIL 30 år : " 
+//				+ util2.reduce1(persons,
+//						(Person p) -> Arrays.asList(new Person(p.getName(), p.getEmail(), p.getBirthdate())),
+//						p -> p.getAgeAt(LocalDate.of(2010, 01, 01))> 30 ));
+
 				+ util2.reduce(persons,
 						(Person p) -> p.getAgeAt(LocalDate.of(2010, 01, 01))>30, 
 						p -> Arrays.asList(new Person(p.getName(), p.getEmail(), p.getBirthdate()))));
@@ -57,16 +61,16 @@ public class Main {
 	private List<String> elder10til20(List<Person> persons){
 		return persons
 				.stream()
-				.filter( p-> p.getAgeAt(LocalDate.of(2020, 01, 01))<20&&p.getAgeAt(LocalDate.of(2020, 01, 01))>10)
-				.map(p->p.getName())
+				.filter( person -> person.getAgeAt(LocalDate.of(2020, 01, 01))<20 && person.getAgeAt(LocalDate.of(2020, 01, 01))>10)
+				.map(person->person.getName())
 				.collect(Collectors.toList());		
 	}	
 
 	private List<Person> elder30(List<Person> persons){
 		return persons
 				.stream()
-				.filter(p-> p.getAgeAt(LocalDate.of(2010, 01, 01))>30)	
-				.map(p-> new Person(p.getName(), p.getEmail(), p.getBirthdate()))
+				.filter(person -> person.getAgeAt(LocalDate.of(2010, 01, 01))>30)	
+				.map(person-> new Person(person.getName(), person.getEmail(), person.getBirthdate()))
 				.collect(Collectors.toList());
 
 	}
