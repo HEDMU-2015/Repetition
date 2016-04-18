@@ -35,8 +35,8 @@ public class Util <T, R> {
 		
 		return list
 				.stream()
-				.filter((Predicate<? super T>) predicate)
 				.map(function)
+				.filter(predicate) //??????
 				.collect(Collectors.toList());
 	}
 	

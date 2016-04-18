@@ -27,13 +27,22 @@ public class Main {
 		System.out.println("***********************************************");
 
 		Util<Person, List<Person>> util0 = new Util<>();
-		System.out.println("UTIL 25 år : " + util0.reduce(persons,(Person p)-> p.getAge()> 25, (Person p)-> Arrays.asList(new Person(p.getName(), p.getEmail(), p.getBirthdate()))));
+		System.out.println("UTIL 25 år : " 
+				+ util0.reduce(persons,
+				(Person p)-> p.getAge()> 25,  // without case(Person p) : ambiguity error
+				p-> Arrays.asList(new Person(p.getName(), p.getEmail(), p.getBirthdate()))));
 		
 		Util<Person,String> util1 = new Util<>();
-		System.out.println("UTIL 10-20 år : " + util1.reduce(persons,(Person p)-> p.getAgeAt(LocalDate.of(2020, 01, 01))<20 && p.getAgeAt(LocalDate.of(2020, 01, 01))>10, p->p.getName()));
+		System.out.println("UTIL 10-20 år : " 				
+				+ util1.reduce(persons,
+				(Person p)-> p.getAgeAt(LocalDate.of(2020, 01, 01))<20 && p.getAgeAt(LocalDate.of(2020, 01, 01))>10,
+				p->p.getName()));
 		
 		Util<Person, List<Person>> util2 = new Util<>();
-		System.out.println("UTIL 30 år : " + util2.reduce(persons,(Person p)-> p.getAgeAt(LocalDate.of(2010, 01, 01))>30, (Person p)-> Arrays.asList(new Person(p.getName(), p.getEmail(), p.getBirthdate()))));
+		System.out.println("UTIL 30 år : " 
+				+ util2.reduce(persons,
+				(Person p)-> p.getAgeAt(LocalDate.of(2010, 01, 01))>30, 
+				p-> Arrays.asList(new Person(p.getName(), p.getEmail(), p.getBirthdate()))));
 			
 	}
 	
