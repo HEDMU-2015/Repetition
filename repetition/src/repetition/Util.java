@@ -31,12 +31,12 @@ public class Util <T, R> {
 				.collect(Collectors.toList());
 		}
 	
-	public List<R> reduce(List<T> list, Function<T, R> function, Predicate<R> predicate){ // T? R?
+	public List<R> reduce(List<T> list, Function<T, R> function, Predicate<R> predicate){ // 30 år
 		
 		return list
 				.stream()
 				.map(function)
-				.filter(predicate) //??????
+				.filter(predicate) 
 				.collect(Collectors.toList());
 	}
 	

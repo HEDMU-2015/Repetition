@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
@@ -30,6 +29,14 @@ public class Main {
 				+ util0.reduce(persons,
 						(Person p) -> p.getAge()> 25,  // without case(Person p) : ambiguity error
 						p -> Arrays.asList(new Person(p.getName(), p.getEmail(), p.getBirthdate()))));
+		
+		
+		Util<Person, Person> util = new Util<>();
+		System.out.println("UTIL 25 år med anden metode : " 
+				+ util.reduce(persons,
+						p -> new Person(p.getName(), p.getEmail(), p.getBirthdate()),
+						(Person p) -> p.getAge()> 25  // without case(Person p) : ambiguity error
+						));
 
 		Util<Person,String> util1 = new Util<>();
 		System.out.println("UTIL 10-20 år : " 				
@@ -37,11 +44,14 @@ public class Main {
 						(Person p) -> p.getAgeAt(LocalDate.of(2020, 01, 01))<20 && p.getAgeAt(LocalDate.of(2020, 01, 01))>10,
 						p -> p.getName()));
 
-		Util<Person, List<Person>> util2 = new Util<>();
+		Util<Person, Person> util2 = new Util<>();
 		System.out.println("UTIL 30 år : " 
-				+ util2.reduce(persons,
-						(Person p) -> p.getAgeAt(LocalDate.of(2010, 01, 01))>30, 
-						p -> Arrays.asList(new Person(p.getName(), p.getEmail(), p.getBirthdate()))));
+				+ util2.reduce(persons, 
+						(Person p) -> new Person(p.getName(), p.getEmail(), p.getBirthdate()), 
+						p-> p.getAgeAt(LocalDate.of(2010, 01, 01)) > 30));
+//				+ util2.reduce(persons,
+//						(Person p) -> p.getAgeAt(LocalDate.of(2010, 01, 01))>30, 
+//						p -> Arrays.asList(new Person(p.getName(), p.getEmail(), p.getBirthdate()))));
 
 	}
 
