@@ -14,6 +14,7 @@
  - Alle personer sorteret efter fødselsdag, ældste sidst
  - Alle employees, sorteret efter ansættelsesdato i faldende orden
  - Navne på personer og deres alder, i en given Company
+ - Oversigt over Companies, med antal ansatte
  
  Lav domæne-objekter til Person og Employment.
  
