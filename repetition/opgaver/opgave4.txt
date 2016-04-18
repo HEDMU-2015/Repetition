@@ -1,4 +1,4 @@
- Opgave 4 - 26. april 2016
+ Opgave 4 - 26. april 2016 
  
  Lav følgende ændring til Person-klassen:
  - Anvend builder-pattern og gør derved Person-klassen immutable.
