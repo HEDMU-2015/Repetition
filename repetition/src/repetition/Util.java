@@ -23,22 +23,22 @@ public class Util <T, R> {
 		return Period.between(from, to).getYears();		
 	}
 	
-//	public List<R> reduce(List<T> list, Predicate<T> predicate, Function<T, R> function){
-//		return list
-//				.stream()
-//				.filter(predicate)
-//				.map(function)
-//				.collect(Collectors.toList());
-//		}
-//	
-//	public List<R> reduce(List<T> list, Function<T, R> function, Predicate<R> predicate){ // T? R?
-//		
-//		return list
-//				.stream()
-//				.filter(function)
-//				.map(predicate)
-//				.collect(Collectors.toList());
-//	}
+	public List<R> reduce(List<T> list, Predicate<T> predicate, Function<T, R> function){
+		return list
+				.stream()
+				.filter(predicate)
+				.map(function)
+				.collect(Collectors.toList());
+		}
+	
+	public List<R> reduce(List<T> list, Function<T, R> function, Predicate<R> predicate){ // T? R?
+		
+		return list
+				.stream()
+				.filter((Predicate<? super T>) predicate)
+				.map(function)
+				.collect(Collectors.toList());
+	}
 	
 	
 	

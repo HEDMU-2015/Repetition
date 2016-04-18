@@ -2,6 +2,7 @@ package repetition;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -18,8 +19,21 @@ public class Main {
 	
 		Main main = new Main();
 		List<Person> persons = main.lavList();
-		System.out.println(persons);
-		System.out.println(main.elderThan25(persons));
+		System.out.println("List : " + persons);
+		System.out.println("***********************************************");
+		System.out.println("main method trial 25 år : " + main.elderThan25(persons));
+		System.out.println("main method trial 10-20 år : " + main.elder10til20(persons));
+		System.out.println("main method trial 30 år : " + main.elder30(persons));
+		System.out.println("***********************************************");
+
+		Util<Person, List<Person>> util0 = new Util<>();
+		System.out.println("UTIL 25 år : " + util0.reduce(persons,(Person p)-> p.getAge()> 25, (Person p)-> Arrays.asList(new Person(p.getName(), p.getEmail(), p.getBirthdate()))));
+		
+		Util<Person,String> util1 = new Util<>();
+		System.out.println("UTIL 10-20 år : " + util1.reduce(persons,(Person p)-> p.getAgeAt(LocalDate.of(2020, 01, 01))<20 && p.getAgeAt(LocalDate.of(2020, 01, 01))>10, p->p.getName()));
+		
+		Util<Person, List<Person>> util2 = new Util<>();
+		System.out.println("UTIL 30 år : " + util2.reduce(persons,(Person p)-> p.getAgeAt(LocalDate.of(2010, 01, 01))>30, (Person p)-> Arrays.asList(new Person(p.getName(), p.getEmail(), p.getBirthdate()))));
 			
 	}
 	
@@ -28,8 +42,25 @@ public class Main {
 				.stream()
 				.filter(person -> person.getAge()>25)
 				.collect(Collectors.toList());		
+		
 	}
 	
+	private List<String> elder10til20(List<Person> persons){
+		return persons
+				.stream()
+				.filter( p-> p.getAgeAt(LocalDate.of(2020, 01, 01))<20&&p.getAgeAt(LocalDate.of(2020, 01, 01))>10)
+				.map(p->p.getName())
+				.collect(Collectors.toList());		
+	}	
+	
+	private List<Person> elder30(List<Person> persons){
+		return persons
+				.stream()
+				.filter(p-> p.getAgeAt(LocalDate.of(2010, 01, 01))>30)	
+				.map(p-> new Person(p.getName(), p.getEmail(), p.getBirthdate()))
+				.collect(Collectors.toList());
+
+	}
 	
 	private List<Person> lavList(){
 		
