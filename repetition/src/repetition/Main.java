@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import sun.security.pkcs11.wrapper.Functions;
 /**
  * 
  * @author Juyoung Choi
@@ -40,10 +39,6 @@ public class Main {
 
 		Util<Person, List<Person>> util2 = new Util<>();
 		System.out.println("UTIL 30 år : " 
-//				+ util2.reduce1(persons,
-//						(Person p) -> Arrays.asList(new Person(p.getName(), p.getEmail(), p.getBirthdate())),
-//						p -> p.getAgeAt(LocalDate.of(2010, 01, 01))> 30 ));
-
 				+ util2.reduce(persons,
 						(Person p) -> p.getAgeAt(LocalDate.of(2010, 01, 01))>30, 
 						p -> Arrays.asList(new Person(p.getName(), p.getEmail(), p.getBirthdate()))));
@@ -69,8 +64,8 @@ public class Main {
 	private List<Person> elder30(List<Person> persons){
 		return persons
 				.stream()
-				.filter(person -> person.getAgeAt(LocalDate.of(2010, 01, 01))>30)	
 				.map(person-> new Person(person.getName(), person.getEmail(), person.getBirthdate()))
+				.filter(person -> person.getAgeAt(LocalDate.of(2010, 01, 01))>30)	// map - filter can be filter-map, too
 				.collect(Collectors.toList());
 
 	}
