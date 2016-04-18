@@ -1,0 +1,12 @@
+ Opgave 4 - 26. april 2016
+ 
+ Lav følgende ændring til Person-klassen:
+ - Anvend builder-pattern og gør derved Person-klassen immutable.
+ 
+ Lav en cache til alle dine personer:
+ - Den skal laves som en Singleton, med navnet Personer
+ - Den skal indeholde en Map<String, Person>, hvor key er email
+ - Den skal indeholde CRUD-metoder
+ - Ved instantiering skal den fylde Mappen med indhold fra databasen
+ 
+ Ret Logik-klassen fra Opgave3, så den benytter denne cache i stedet for databasen.

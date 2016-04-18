@@ -1,8 +1,8 @@
- Opgave 2 - 26. april 2016
+ Opgave 3 - 26. april 2016
  
  Lav Create-statement til en SQL-tabel:
  - Tabelnavn: Person
- - Kolonner: id (bigint, autogenereret, fortløbende, startende med 1), name (varchar, max længde 80, skal altid udfyldes), email (varchar, max længde 255), birthdate (dato, skal udfyldes)
+ - Kolonner: id (bigint, autogenereret, fortløbende, startende med 1), name (varchar, max længde 80, skal altid udfyldes), email (varchar, max længde 255, skal være unik), birthdate (dato, skal udfyldes)
  - Læg data i tabellen, svarende til den Liste, du lavede i opgave1.
  
  Lav Create-statement til en SQL-tabel:
