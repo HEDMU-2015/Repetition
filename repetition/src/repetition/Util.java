@@ -17,6 +17,7 @@ import java.util.stream.Collectors;
  * @param <T> : T - the type of the input to the function
  * @param <R> : R - the type of the result of the function
  */
+
 public class Util <T, R> {
 	
 	public static int differentInYears(LocalDate from, LocalDate to){
@@ -40,7 +41,4 @@ public class Util <T, R> {
 				.collect(Collectors.toList());
 	}
 	
-	
-	
-
 }

@@ -1,0 +1,23 @@
+Opgave 2 - 26. april 2016
+ 
+ Lav Create-statement til en SQL-tabel:
+ - Tabelnavn: Person
+ - Kolonner: id (bigint, autogenereret, fortløbende, startende med 1), name (varchar, max længde 80, skal altid udfyldes), email (varchar, max længde 255), birthdate (dato, skal udfyldes)
+ - Læg data i tabellen, svarende til den Liste, du lavede i opgave1.
+ 
+ Lav Create-statement til en SQL-tabel:
+ - Tabelnavn: Employment
+ - Kolonner: id (som ovenfor), company (varchar, max 50, skal udfyldes), employmentdate (dato, skal udfyldes) person (fremmednøgle til person, skal udfyldes)
+ - Læg data i tabellen, så alle dine personer pånær en eller to findes i Employment, og så mindst to er ansat i samme Company
+ 
+ Lav Selects, der viser følgende:
+ - Alle personer sorteret efter fødselsdag, ældste sidst
+ - Alle employees, sorteret efter ansættelsesdato i faldende orden
+ - Navne på personer og deres alder, i en given Company
+ - Oversigt over Companies, med antal ansatte
+ 
+ Lav domæne-objekter til Person og Employment.
+ 
+ Lav data-klasser med CRUD-metoder, til begge tabeller.
+ 
+ Lav logik-klasser med CRUD-metoder, og med commit/rollback-styring til een af tabellerne.
