@@ -45,7 +45,7 @@ public class EmploymentMapper implements CRUD<Employment, Integer> {
 				Employment employemnt1 = new Employment();
 				employemnt1.setCompany(resultSet.getString("company"));
 				employemnt1.setEmployment(new java.sql.Date(resultSet.getDate("employment").getTime()).toLocalDate());
-				employemnt1.setPerson(new Person(resultSet.getInt("personid"), resultSet.getString("name"), 
+				employemnt1.setPerson(new Person(resultSet.getString("name"), 
 						resultSet.getString(resultSet.getString("email")), 
 						new java.sql.Date(resultSet.getDate("birthday").getTime()).toLocalDate()));
 				employment = Optional.of(employemnt1);

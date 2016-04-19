@@ -17,8 +17,7 @@ public class Person {
 	public Person() {
 	}
 	
-	public Person(int id, String name, String email, LocalDate birthday) {
-		this.id = id;
+	public Person(String name, String email, LocalDate birthday) {
 		this.name = name;
 		this.email = email;
 		this.birthday = birthday;
@@ -49,12 +48,10 @@ public class Person {
 	public void setBirthday(LocalDate birthday) {
 		this.birthday = birthday;
 	}
-	
-	
+
 	@Override
 	public String toString() {
-		return "Person [name=" + name + ", email=" + email + ", birthday=" + birthday + "]";
+		return "Person [id=" + id + ", name=" + name + ", email=" + email + ", birthday=" + birthday + "]";
 	}
-	
 	
 }

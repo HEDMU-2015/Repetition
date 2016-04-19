@@ -23,7 +23,7 @@ public class ConnectionHandler {
 				this.conn = DriverManager.getConnection("jdbc:hsqldb:hsql://localhost/mydatabase", "SA", "");
 				this.conn.setAutoCommit(false);
 			} catch (SQLException e) {
-				throw new RuntimeException ("Failed to connect to database");
+				throw new RuntimeException ("Failed to connect to database", e);
 			}
 		}
 		level++;
