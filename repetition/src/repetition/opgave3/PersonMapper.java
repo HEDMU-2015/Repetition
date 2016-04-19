@@ -4,13 +4,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Optional;
+import java.sql.Date;
+
 
 
 
 public class PersonMapper implements CRUD<Person, Integer> {
 	private CloseForSQL close = new CloseForSQL();
 	private final static String CREATE_PERSON = "INSERT INTO person(name, email, birthday) VALUES(?,?,?)";
-	private final static String READ_PERSON = "SELECT FROM person WHERE id = ?";
+	private final static String READ_PERSON = "SELECT * FROM person WHERE id = ?";
 	private final static String UPDATE_PERSON = "UPDATE person SET name = ? , email = ? , birthday = ? WHERE id = ?";
 	private final static String DELETE_PERSON = "DELETE FROM person WHERE id = ?";
 
@@ -22,7 +24,7 @@ public class PersonMapper implements CRUD<Person, Integer> {
 			statement = dataAccess.getConnection().prepareStatement(CREATE_PERSON);
 			statement.setString(1, domain.getName());
 			statement.setString(2, domain.getEmail());
-			statement.setDate(3, java.sql.Date.valueOf(domain.getBirthday()));
+			statement.setDate(3, Date.valueOf(domain.getBirthday()));
 
 			statement.execute();
 		} catch (SQLException exc) {
@@ -65,7 +67,7 @@ public class PersonMapper implements CRUD<Person, Integer> {
 			statement = dataAccess.getConnection().prepareStatement(UPDATE_PERSON);
 			statement.setString(1, domain.getName());
 			statement.setString(2, domain.getEmail());
-			statement.setDate(3, java.sql.Date.valueOf(domain.getBirthday()));
+			statement.setDate(3, Date.valueOf(domain.getBirthday()));
 			statement.setInt(4, domain.getId());
 			statement.execute();
 		} catch (SQLException exc) {

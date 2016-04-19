@@ -10,9 +10,18 @@ import java.time.LocalDate;
 
 
 public class Employment {
+	private int id;
 	private String company;
 	private LocalDate employment;
 	private Person person;
+	
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getCompany() {
 		return company;
 	}
@@ -32,10 +41,10 @@ public class Employment {
 		this.person = person;
 	}
 	
-	
 	@Override
 	public String toString() {
-		return "Employment [company=" + company + ", employment=" + employment + ", person=" + person + "]";
+		return "Employment [id=" + id + ", company=" + company + ", employment=" + employment + ", person=" + person
+				+ "]";
 	}
-	
+
 }
