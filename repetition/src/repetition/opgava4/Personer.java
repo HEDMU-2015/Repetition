@@ -1,13 +1,18 @@
 package repetition.opgava4;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+
+import org.hsqldb.lib.Iterator;
+//import java.util.concurrent.ConcurrentHashMap;
 
 public class Personer {
 	
 	private static Personer personer = new Personer();
-	private Map<String, Person> map = new HashMap();
+	private static final Map<String, Person> cache = new HashMap <>();
 	
 	private Personer(){
 		
@@ -17,19 +22,29 @@ public class Personer {
 		return personer;
 	}
 	
-	public void create(){
-		
+	public void create(String email, Person person){
+		cache.put(email, person);
 	}
 	
-	public Optional<Person> read(){
-		return null;
+	public Person read(String email){
+		return cache.get(email);
 	}
 	
-	public void update(){
-		
+	public void update(String email, Person person){
+		cache.replace(email, person);
 	}
 	
-	public void delete(){
+	public void delete(String email){
+		cache.remove(email);
+	}
+	
+	public List<Person> getList(){
+		List<Person> list = new ArrayList<>();
 		
+		for(Map.Entry<String, Person> entry : cache.entrySet()){
+			list.add(entry.getValue());
+		}
+		
+		return list;
 	}
 }

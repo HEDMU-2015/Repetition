@@ -1,30 +1,20 @@
 package repetition.opgava4;
 
-import java.util.Optional;
-
-public class PersonLogic {
-	PersonMapper personMapper = new PersonMapper();
+public class PersonLogic implements CRUD<Person, String> {
 	
-	public void creat(Person domain){
-		DataAccess dataAccess = new DataAccess();		
-		new LogicTrans<>(dataAccess).transaction(()-> personMapper.create(dataAccess, domain));
+	public void create(Person person){
+		Personer.instance().create(person.getEmail(), person);
 	}
 	
-	public Optional<Person> readOrganisation(int id){
-		DataAccess dataAccess = new DataAccess();		
-		return new LogicTrans<Optional<Person>>(dataAccess).transaction(()-> personMapper.read(dataAccess, id));
+	public Person read(String email){
+		return Personer.instance().read(email);
 	}
 	
-	public void update (Person domain){
-		DataAccess dataAccess = new DataAccess();		
-		new LogicTrans<>(dataAccess).transaction(()-> personMapper.update(dataAccess, domain));
-		
+	public void update (Person person){
+		Personer.instance().update(person.getEmail(), person);
 	}
 	
-	public void create(Person domain){
-		DataAccess dataAccess = new DataAccess();		
-		new LogicTrans<>(dataAccess).transaction(()-> personMapper.create(dataAccess, domain));
-		
+	public void delete(Person person){
+		Personer.instance().delete(person.getEmail());		
 	}
-
 }

@@ -48,6 +48,7 @@ public class PersonMapper implements CRUD<Person, Integer> {
 				Person person1 = new Person();
 				person1.setId(resultSet.getInt("id"));
 				person1.setName(resultSet.getString("name"));
+				person1.setEmail(resultSet.getString("email"));
 				person1.setBirthday(new java.sql.Date(resultSet.getDate("birthday").getTime()).toLocalDate());
 				person = Optional.of(person1);
 			}
