@@ -10,9 +10,9 @@ public class PersonLogic {
 		new LogicTrans<>(dataAccess).transaction(()-> personMapper.create(dataAccess, domain));
 	}
 	
-	public Optional<Person> read(int id){
+	public Person read(int id){
 		DataAccess dataAccess = new DataAccess();		
-		return new LogicTrans<Optional<Person>>(dataAccess).transaction(()-> personMapper.read(dataAccess, id));
+		return new LogicTrans<Optional<Person>>(dataAccess).transaction(()-> personMapper.read(dataAccess, id)).get();
 	}
 	
 	public void update(Person domain){

@@ -11,9 +11,9 @@ public class EmploymentLogic {
 		new LogicTrans<>(dataAccess).transaction(()-> employmentMapper.create(dataAccess, domain));
 	}
 	
-	public Optional<Employment> read(int id){
+	public Employment read(int id){
 		DataAccess dataAccess = new DataAccess();		
-		return new LogicTrans<Optional<Employment>>(dataAccess).transaction(()-> employmentMapper.read(dataAccess, id));
+		return new LogicTrans<Optional<Employment>>(dataAccess).transaction(()-> employmentMapper.read(dataAccess, id)).get();
 	}
 	
 	public void update(Employment domain){
