@@ -1,4 +1,4 @@
-package repetition;
+package repetition.opgave1;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
