@@ -7,17 +7,19 @@ public class Person {
 	private String name;
 	private String email;
 	private LocalDate birthdate;
-	
+
 	public Person() {
 	}
-	
+
 	public Person(String name, String email, LocalDate birthdate) {
 		this.name = name;
 		this.email = email;
 		this.birthdate = birthdate;
 	}
-	
-	/* (non-Javadoc)
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
@@ -33,7 +35,8 @@ public class Person {
 	}
 
 	/**
-	 * @param name the name to set
+	 * @param name
+	 *            the name to set
 	 */
 	public void setName(String name) {
 		this.name = name;
@@ -47,7 +50,8 @@ public class Person {
 	}
 
 	/**
-	 * @param email the email to set
+	 * @param email
+	 *            the email to set
 	 */
 	public void setEmail(String email) {
 		this.email = email;
@@ -61,18 +65,33 @@ public class Person {
 	}
 
 	/**
-	 * @param birthdate the birthdate to set
+	 * @param birthdate
+	 *            the birthdate to set
 	 */
 	public void setBirthdate(LocalDate birthdate) {
 		this.birthdate = birthdate;
 	}
 
-	public long getAge() {
+	public int getAge() {
+		
+//		Util util = new Util();
+//		util.differenceInYears(getBirthdate(), LocalDate.now());
 		LocalDate now = LocalDate.now();
-        LocalDate birthday = getBirthdate();
-         
-        long age = ChronoUnit.YEARS.between(birthday, now);
+		LocalDate birthday = getBirthdate();
+		int age = (int) ChronoUnit.YEARS.between(birthday, now);
 		return age;
-	}
 	
+		
+	}
+	public int getAgeAt(LocalDate Date){
+		LocalDate now = Date;
+		LocalDate birthday = getBirthdate();
+		
+		int age = (int) ChronoUnit.YEARS.between(birthday, now);;
+		
+		
+		return age;
+		
+	}
+
 }
