@@ -20,10 +20,6 @@ public class Person {
 		this.birthdate = birthdate;
 	}
 
-	// LocalDate birthdate = new LocalDate (1970, 1, 20);
-	// LocalDate now = new LocalDate();
-	// Years age = Years.yearsBetween(birthdate, now);
-
 	public int getAge() {
 		today = LocalDate.now();
 		difference = Period.between(birthdate, today);
@@ -48,7 +44,8 @@ public class Person {
 	}
 
 	public String toString() {
-		String toString = ">>Name: " + name + ", Email: " + email  + ", Birthdate: "+birthdate+ ", Age: " + getAge()+"<<";
+		String toString = ">>Name: " + name + ", Email: " + email + ", Birthdate: " + birthdate + ", Age: " + getAge()
+				+ "<<";
 		return toString;
 	}
 
