@@ -8,6 +8,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		Main neededForPrint = new Main();
+		Util<Person, Person> util = new Util<>();
 		List<Person> personer = new ArrayList<>();
 		List<Person> personOver25 = new ArrayList<>();
 
@@ -46,15 +47,26 @@ public class Main {
 			System.out.println(p);
 		}
 
+		// opgave 1
 		personOver25 = neededForPrint.elderThan25(personer);
 		System.out.println("\nPersoner over 25: " + personOver25.size());
 		for (Person p : personOver25) {
 			System.out.println(p);
 		}
 
+		//opgave 2
+		System.out.println("\nPersoner under 30: ");
+		System.out.println(util.reduce1(personer, p -> p.getAgeAt(LocalDate.of(2020, 1, 1)) < 30, p -> p));
+		
+		System.out.println("\nPersoner mellem 10 og 20: ");
+		System.out.println(util.reduce2(personer, p -> p, p -> p.getAgeAt(LocalDate.of(2010, 1, 1)) > 10 && p.getAgeAt(LocalDate.of(2010, 1, 1)) < 20 ));
+		
+		
+		
 	}
 
 	public List<Person> elderThan25(List<Person> persons) {
+		
 		List<Person> personOver25 = new ArrayList<>();
 
 		for (Person p : persons) {
