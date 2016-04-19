@@ -21,10 +21,16 @@ public class Person {
 	}
 
 	public int getAge() {
-		today = LocalDate.now();
-		difference = Period.between(birthdate, today);
 
-		return difference.getYears();
+		today = LocalDate.now();
+		// difference = Period.between(birthdate, today);
+		
+		return Util.differenceInYears(birthdate, today);
+	}
+	
+	public int getAgeAt(LocalDate date) {
+
+		return Util.differenceInYears(birthdate, date);
 	}
 
 	public String getName() {
@@ -44,7 +50,7 @@ public class Person {
 	}
 
 	public String toString() {
-		String toString = ">>Name: " + name + ", Email: " + email + ", Birthdate: " + birthdate + ", Age: " + getAge()
+		String toString = ">>Name: " + name + ", Email: " + email + ", Birthdate: " + birthdate + ", Age Today: " + getAge()
 				+ "<<";
 		return toString;
 	}
