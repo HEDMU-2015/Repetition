@@ -18,10 +18,7 @@ public class Person {
 	}
 	
 	public int getAge() {
-//		int age = LocalDate.now().compareTo(birthdate); 
-		Period tAge = Period.between(birthdate, LocalDate.now());
-		int age = tAge.getYears();
-		
+		int age = LocalDate.now().compareTo(birthdate); 
 		return age;
 	}
 
