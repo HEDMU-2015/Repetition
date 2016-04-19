@@ -22,10 +22,12 @@ public class Main {
 		System.out.println("List : " + persons);
 
 		System.out.println("\n***********************************************\n");
+		
 		System.out.println("main method trial 25 år : " + main.elderThan25(persons));
 		System.out.println("main method trial 25 år with iterator : " + main.elderThan25withIeterator(persons));
 		System.out.println("main method trial 10-20 år : " + main.elder10til20(persons));
 		System.out.println("main method trial 30 år : " + main.elder30(persons));
+		
 		System.out.println("\n***********************************************\n");
 
 		Util<Person, List<Person>> util0 = new Util<>();
@@ -94,7 +96,8 @@ public class Main {
 	private List<Person> elder30(List<Person> persons){
 		return persons
 				.stream()
-				.map(person-> new Person(person.getName(), person.getEmail(), person.getBirthdate()))
+//				.map(person-> new Person(person.getName(), person.getEmail(), person.getBirthdate()))
+				.map(person->person)
 				.filter(person -> person.getAgeAt(LocalDate.of(2010, 01, 01))>30)	// map - filter can be filter-map, too
 				.collect(Collectors.toList());
 
