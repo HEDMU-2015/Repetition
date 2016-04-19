@@ -26,6 +26,9 @@ public class Util<T,R> {
 		
 	}
 	
+	//forskellen imellem disse to er om der bliver filtreret først eller bagefter. Skal der filtreres på det der mappes så bruger man nummer 2.
+	//nummer 1 kn f.eks. bruges til at få fat i navn eller lignende fra outputtet, det kan nummer 2 dog ikke.
+	
 	public List<R> reduce2(List<T> list, Function<T, R> function, Predicate<R> predicate){
 		//map/filter er byttet rundt her i forhold til reduce1.
 		return list

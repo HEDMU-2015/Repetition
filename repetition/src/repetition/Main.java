@@ -23,7 +23,7 @@ public class Main {
 		personer.add(p = new Person("Jens", "Jens@email.dk", LocalDate.of(1985, 12, 31)));
 		personer.add(p = new Person("Kim", "Kim@email.dk", LocalDate.of(2010, 12, 24)));
 		personer.add(p = new Person("Birgit", "email@email.dk", LocalDate.of(1974, 01, 01)));
-		personer.add(p = new Person("Kaj", "kaj@email.dk", LocalDate.of(2001, 9, 11)));
+		personer.add(p = new Person("Kaj", "kaj@email.dk", LocalDate.of(1998, 9, 11)));
 
 		System.out.println("All persons:");
 		for (Person pe : personer) {
@@ -37,13 +37,15 @@ public class Main {
 			System.out.println(pe.toString());
 		}
 
-		Util<Person, Person> utility = new Util<>();
+		Util<Person, String> utility = new Util<>();
+		Util<Person, Person> utility2 = new Util<>();
+		
 
-		System.out.println("under 30 2020 1/1: "
-				+ utility.reduce1(personer, pl -> pl.getAgeAt(LocalDate.of(2020, 1, 1)) < 30, pr -> pr)); // reduce1
+		System.out.println("imellem 10 og 20 2010 1/1:  "
+				+ utility.reduce1(personer, pl -> pl.getAgeAt(LocalDate.of(2010, 1, 1)) <= 20 && pl.getAgeAt(LocalDate.of(2010, 1, 1))>=10, pr -> pr.getName())); // reduce1
 
-		System.out.println("imellem 10 og 20 2010 1/1: " + utility.reduce2(personer, pr -> pr,
-				pl -> pl.getAgeAt(LocalDate.of(2010, 1, 1)) < 20 && pl.getAge() > 10)); // reduce2
+		System.out.println("under 30 2020 1/1 " + utility2.reduce2(personer, pr -> pr,
+				pl -> pl.getAgeAt(LocalDate.of(2020, 1, 1)) < 30)); // reduce2
 
 	}
 
