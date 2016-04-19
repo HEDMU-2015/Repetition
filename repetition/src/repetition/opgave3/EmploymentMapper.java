@@ -29,8 +29,7 @@ public class EmploymentMapper implements CRUD<Employment, Integer> {
 			throw new RuntimeException("Query has failed!" , exc);
 		} finally {
 			close.close(statement);
-		}		
-		
+		}				
 	}
 
 	@Override
@@ -51,7 +50,7 @@ public class EmploymentMapper implements CRUD<Employment, Integer> {
 						new java.sql.Date(resultSet.getDate("birthday").getTime()).toLocalDate()));
 				employment = Optional.of(employemnt1);
 			}
-			
+
 		} catch (SQLException exc) {
 			throw new RuntimeException("Query has failed!" , exc);
 
@@ -75,8 +74,7 @@ public class EmploymentMapper implements CRUD<Employment, Integer> {
 			throw new RuntimeException("Query has failed!" , exc);
 		} finally {
 			close.close(statement);
-		}		
-		
+		}				
 	}
 
 	@Override
