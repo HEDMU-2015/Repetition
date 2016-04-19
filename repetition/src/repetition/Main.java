@@ -32,17 +32,17 @@ public class Main {
 	}
 	
 	public List<Person> elderThan25(List<Person> persons) {
-		List<Person> result = new ArrayList<>();
+		List<Person> ældreOG25 = new ArrayList<>();
 		Iterator<Person> it = persons.iterator();
 		
 			while(it.hasNext()){
 				Person p = it.next();
 				
 				if(p.getAge() >= 25){
-					result.add(p);
+					ældreOG25.add(p);
 				}
 			}
-		return result;
+		return ældreOG25;
 	}
 	
 }
