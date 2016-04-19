@@ -20,6 +20,7 @@ public class Main {
 		Main main = new Main();
 		List<Person> persons = main.lavList();
 		System.out.println("List : " + persons);
+
 		System.out.println("\n***********************************************\n");
 		System.out.println("main method trial 25 år : " + main.elderThan25(persons));
 		System.out.println("main method trial 25 år with iterator : " + main.elderThan25withIeterator(persons));
@@ -32,13 +33,14 @@ public class Main {
 				+ util0.reduce(persons,
 						(Person p) -> p.getAge()> 25,  // without case(Person p) : ambiguity error
 						p -> Arrays.asList(new Person(p.getName(), p.getEmail(), p.getBirthdate()))));
-		
-		
+
+
 		Util<Person, Person> util = new Util<>();
 		System.out.println("UTIL 25 år med anden metode : " 
 				+ util.reduce(persons,
-						p -> new Person(p.getName(), p.getEmail(), p.getBirthdate()),
-						(Person p) -> p.getAge()> 25  // without case(Person p) : ambiguity error
+						//						p -> new Person(p.getName(), p.getEmail(), p.getBirthdate()), // new Person, or p : same
+						(Person p) -> p, // one should be casted, but which one? first or second? both are ok...
+						p -> p.getAge()> 25  // without case(Person p) : ambiguity error
 						));
 
 		Util<Person,String> util1 = new Util<>();
@@ -50,11 +52,12 @@ public class Main {
 		Util<Person, Person> util2 = new Util<>();
 		System.out.println("UTIL 30 år : " 
 				+ util2.reduce(persons, 
-						(Person p) -> new Person(p.getName(), p.getEmail(), p.getBirthdate()), 
+						//						(Person p) -> new Person(p.getName(), p.getEmail(), p.getBirthdate()), 
+						(Person p) -> p,
 						p-> p.getAgeAt(LocalDate.of(2010, 01, 01)) > 30));
-//				+ util2.reduce(persons,
-//						(Person p) -> p.getAgeAt(LocalDate.of(2010, 01, 01))>30, 
-//						p -> Arrays.asList(new Person(p.getName(), p.getEmail(), p.getBirthdate())))); // with Util<Person, List<Person>>
+		//				+ util2.reduce(persons,
+		//						(Person p) -> p.getAgeAt(LocalDate.of(2010, 01, 01))>30, 
+		//						p -> Arrays.asList(new Person(p.getName(), p.getEmail(), p.getBirthdate())))); // with Util<Person, List<Person>>
 
 	}
 
@@ -65,7 +68,7 @@ public class Main {
 				.collect(Collectors.toList());		
 
 	}
-	
+
 	private List<Person> elderThan25withIeterator(List<Person> persons){
 		List<Person> result = new ArrayList<>();
 		Iterator<Person> it = persons.iterator();
@@ -73,10 +76,10 @@ public class Main {
 			Person p = it.next();
 			if(p.getAge()<25){
 				result.add(p);
-//				it.remove(); // not good to change the list : immutable object
+				//				it.remove(); // not good to change the list : immutable object
 			}		
 		}
-//		return persons;
+		//		return persons;
 		return result;
 	}
 
