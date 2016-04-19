@@ -7,16 +7,16 @@ public class Person {
 	private String name;
 	private String email;
 	private LocalDate birthdate;
-	
+
 	public Person() {
 	}
-	
+
 	public Person(String name, String email, LocalDate birthdate) {
 		this.name = name;
 		this.email = email;
 		this.birthdate = birthdate;
 	}
-	
+
 	public int getAge() {
 		LocalDate currentDate = LocalDate.now();
 		Period ageInPeriod = Period.between(birthdate, currentDate);
@@ -50,8 +50,8 @@ public class Person {
 
 	@Override
 	public String toString() {
-		return "Person [name = " + name + ", email = " + email + ", birthdate = " + birthdate + ", age = " + getAge() + "]";
+		return "Person [name = " + name + ", email = " + email + ", birthdate = " + birthdate + ", age = " + getAge()
+				+ "]";
 	}
-	
-	
+
 }

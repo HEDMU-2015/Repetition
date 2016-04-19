@@ -10,7 +10,7 @@ public class Main {
 		Main neededForPrint = new Main();
 		List<Person> personer = new ArrayList<>();
 		List<Person> personOver25 = new ArrayList<>();
-		
+
 		Person kurt = new Person("Kurt", "kurt@gmail.com", LocalDate.of(1960, 12, 1));
 		Person bent = new Person("Bent", "bent@gmail.com", LocalDate.of(1965, 12, 1));
 		Person ib = new Person("Ib", "ib@gmail.com", LocalDate.of(1970, 12, 1));
@@ -25,7 +25,7 @@ public class Main {
 		Person daniel = new Person("Daniel", "daniel@gmail.com", LocalDate.of(1989, 12, 1));
 		Person steffen = new Person("Steffen", "steffen@gmail.com", LocalDate.of(1978, 12, 1));
 		Person jeppe = new Person("Jeppe", "jeppe@gmail.com", LocalDate.of(1999, 12, 1));
-		
+
 		personer.add(kurt);
 		personer.add(bent);
 		personer.add(ib);
@@ -40,25 +40,25 @@ public class Main {
 		personer.add(daniel);
 		personer.add(steffen);
 		personer.add(jeppe);
-		
+
 		System.out.println("Alle personer: " + personer.size());
-		for(Person p : personer) {
+		for (Person p : personer) {
 			System.out.println(p);
 		}
-		
+
 		personOver25 = neededForPrint.elderThan25(personer);
 		System.out.println("\nPersoner over 25: " + personOver25.size());
-		for(Person p : personOver25) {
-			System.out.println(p);	
+		for (Person p : personOver25) {
+			System.out.println(p);
 		}
-		
+
 	}
-	
+
 	public List<Person> elderThan25(List<Person> persons) {
 		List<Person> personOver25 = new ArrayList<>();
-		
-		for(Person p : persons) {
-			if(p.getAge() > 25) {
+
+		for (Person p : persons) {
+			if (p.getAge() > 25) {
 				personOver25.add(p);
 			}
 		}
