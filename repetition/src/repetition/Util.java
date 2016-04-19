@@ -13,8 +13,10 @@ public class Util<T,R> {
 	}
 	
 	public List<R> reduce(List<T> list, Predicate<T> predicate, Function<T, R> function) {
-		
-		return list;
+		return list
+				.stream()
+				.filter(p -> )
+				.map();
 	}
 	
 	public List<R> reduce(List<T> list, Function<T, R> function, Predicate<R> predicate) {
