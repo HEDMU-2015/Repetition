@@ -1,1 +1,42 @@
+package repetition;
+
+import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class Main {
+
+	public static void main(String[] args) {
+		List<Person> persons = Arrays.asList(new Person("Sanne", "sanne@hej.dk", LocalDate.of(1983, 10, 17)),
+				new Person("Heine", "heine@hej.dk", LocalDate.of(1983, 8, 29)),
+				new Person("Lena", "lena@hej.dk", LocalDate.of(1960, 5, 28)),
+				new Person("John", "john@hej.dk", LocalDate.of(1962, 3, 03)),
+				new Person("Katrine", "kat@hej.dk", LocalDate.of(1988, 6, 6)),
+				new Person("Brian", "brian@hej.dk", LocalDate.of(1987, 05, 19)),
+				new Person("Buster", "bust@hej.dk", LocalDate.of(2008, 10, 05)),
+				new Person("Nova", "nova@hej.dk", LocalDate.of(2015, 8, 8)),
+				new Person("Waldemar", "walde@hej.dk", LocalDate.of(2007, 8, 12)),
+				new Person("Flemming", "flem@hej.dk", LocalDate.of(1998, 5, 5)));
+		System.out.println(new Main().elderThan25(persons) + " \n");
+		System.out.println(new Main().youngerThan30(persons) + " \n");
+		System.out.println(new Main().between10and20(persons) + " \n");
+	}
+
+	public List<Person> elderThan25(List<Person> persons) {
+		return persons.stream().filter(p -> p.getAge() > 25).collect(Collectors.toList());
+	}
+
+	public List<Person> youngerThan30(List<Person> persons) {
+		return persons.stream()
+				.filter(p -> p.getAgeAt(LocalDate.of(2020, 1, 1)) >= 0 && p.getAgeAt(LocalDate.of(2010, 1, 1)) < 30)
+				.collect(Collectors.toList());
+	}
+
+	public List<Person> between10and20(List<Person> persons) {
+		return persons.stream()
+				.filter(p -> p.getAgeAt(LocalDate.of(2010, 1, 1)) >= 10 && p.getAgeAt(LocalDate.of(2010, 1, 1)) <= 20)
+				.collect(Collectors.toList());
+	}
+}
 
