@@ -1,5 +1,11 @@
 package repetition.opgava4;
-
+/**
+ * 
+ * @author Juyoung Choi
+ *
+ * @param <D>
+ * @param <K>
+ */
 public interface CRUD<D, K> {
 		
 	public void create(D domain);

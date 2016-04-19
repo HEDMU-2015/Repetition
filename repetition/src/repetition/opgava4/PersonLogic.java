@@ -1,4 +1,9 @@
 package repetition.opgava4;
+/**
+ * 
+ * @author Juyoung Choi
+ *
+ */
 
 public class PersonLogic implements CRUD<Person, String> {
 	

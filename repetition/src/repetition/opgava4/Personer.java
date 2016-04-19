@@ -4,10 +4,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 
-import org.hsqldb.lib.Iterator;
 //import java.util.concurrent.ConcurrentHashMap;
+/**
+ * 
+ * @author Juyoung Choi
+ *
+ */
 
 public class Personer {
 	

@@ -4,7 +4,7 @@
  - Anvend builder-pattern og gør derved Person-klassen immutable.
  
  Lav en cache til alle dine personer:
- - Den skal laves som en Singleton, med navnet Personer
+ - Den skal laves som en Singleton, med navnet  
  - Den skal indeholde en Map<String, Person>, hvor key er email
  - Den skal indeholde CRUD-metoder
  - Ved instantiering skal den fylde Mappen med indhold fra databasen

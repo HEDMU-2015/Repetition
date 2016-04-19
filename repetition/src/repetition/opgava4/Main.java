@@ -1,14 +1,12 @@
 package repetition.opgava4;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
-import java.util.stream.Collectors;
-
-
-//import java.time.LocalDate;
+import java.time.LocalDate;
+/**
+ * 
+ * @author Juyoung Choi
+ *
+ */
 
 public class Main {
 
