@@ -1,1 +1,16 @@
- ?
+ Opgave 1 - 19. april 2016
+ 
+ Færdiggør Person-klassen
+ - getters og setters
+ - metoden getAge() (Hint: Brug klassen java.time.Period)
+ - toString
+ 
+ Færdiggør metoden "elderThan25" i Main-klassen
+ - Den skal reducere input-listen, så kun personer ældre end 25 år returneres.
+ 
+ Udfyld main-metoden med følgende:
+ - Lav en List<Person> med mindst 5 Person-objekter, som er født mellem 1960 og 2010
+ - Udskriv listen
+ - Kald metoden "elderThan25"
+ - Udskriv resultatet (System.out)
+  ?
