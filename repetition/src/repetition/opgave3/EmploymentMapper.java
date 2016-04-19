@@ -9,7 +9,7 @@ import java.util.Optional;
 public class EmploymentMapper implements CRUD<Employment, Integer> {
 	private CloseForSQL close = new CloseForSQL();
 	private final static String CREATE_EMPLOYMENT = "INSERT INTO employment(company, employment, person) VALUES(?,?,?)";
-	private final static String READ_EMPLOYMENT = "SELECT  id, company, employment, person as personID, person.name, "
+	private final static String READ_EMPLOYMENT = "SELECT id, company, employment, person as personID, person.name, "
 			+ "person.email, person.birthday "
 			+ "FROM employment inner join person on  person = person.id WHERE id = ?";
 	private final static String UPDATE_EMPLOYMENT = "UPDATE employemnt SET company = ? , employment = ? , person = ? WHERE id = ?";
