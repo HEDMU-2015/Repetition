@@ -19,6 +19,8 @@ public class Main {
 		System.out.println("\n***********************************************\n");
 
 		System.out.println(Personer.instance().read("juy@me.com"));
+		
+		System.out.println(Personer.instance().search("U"));
 			
 		System.out.println("\n***********************************************\n");
 
