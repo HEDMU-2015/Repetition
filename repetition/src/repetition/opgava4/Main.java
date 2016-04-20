@@ -14,8 +14,9 @@ public class Main {
 	public static void main(String[] args) {
 
 		//new Main().lavList();
+		List<Person> persons = Personer.instance().getList();
 		
-		System.out.println("List : " + Personer.instance().getList());
+		System.out.println("List : " + persons);
 
 		System.out.println("\n***********************************************\n");
 
@@ -25,7 +26,6 @@ public class Main {
 			
 		System.out.println("\n***********************************************\n");
 
-		List<Person> persons = Personer.instance().getList();
 				
 		Util<Person, Person> util = new Util<>();
 		System.out.println("UTIL 25 år med anden metode : " 
