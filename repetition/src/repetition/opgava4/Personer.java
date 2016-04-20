@@ -18,11 +18,10 @@ public class Personer {
 //	http://crunchify.com/hashmap-vs-concurrenthashmap-vs-synchronizedmap-how-a-hashmap-can-be-synchronized-in-java/
 	private static Map<String, Person> cache; // if it is wish  = new ConcurrentHashMap <>(); here : gives ExceptionInInitializerError
 	private PersonMapper personMapper = new PersonMapper();
-	private DataAccess dataAccess;
 	private List<Person> list;
 
 	private Personer(){
-		dataAccess = new DataAccess();
+		DataAccess dataAccess = new DataAccess();
 		cache = new ConcurrentHashMap <>();
 		list = new LogicTrans<List<Person>>(dataAccess).transaction(()-> personMapper.getList(dataAccess));
 		for(Person p : list){

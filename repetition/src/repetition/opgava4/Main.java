@@ -20,9 +20,11 @@ public class Main {
 
 		System.out.println("\n***********************************************\n");
 
-		System.out.println(Personer.instance().read("juy@me.com"));
+		System.out.println("Read with email : " + Personer.instance().read("juy@me.com"));
 		
-		System.out.println(Personer.instance().search("U"));
+		String key = "U";
+		
+		System.out.println("search with keyword - " + key + " : " + Personer.instance().search(key));
 			
 		System.out.println("\n***********************************************\n");
 
