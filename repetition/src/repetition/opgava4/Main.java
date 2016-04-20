@@ -1,6 +1,7 @@
 package repetition.opgava4;
 
 import java.util.List;
+
 import java.time.LocalDate;
 /**
  * 
@@ -12,7 +13,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		new Main().lavList();
+		//new Main().lavList();
 		
 		System.out.println("List : " + Personer.instance().getList());
 
@@ -49,16 +50,15 @@ public class Main {
 	}
 
 
-	private void lavList(){
-
-		Personer.instance().create("juy@me.com", new Person.Builder("Juyoung", "juy@me.com", LocalDate.of(1982,01,17)).build());
-		Personer.instance().create("jesp@me.com", new Person.Builder("Jesper", "jesp@me.com", LocalDate.of(1974,07,18)).build());
-		Personer.instance().create("mina@me.com", new Person.Builder("Mina", "mina@me.com", LocalDate.of(2010,02,17)).build());
-		Personer.instance().create("kim@me.com", new Person.Builder("Kim", "kim@me.com", LocalDate.of(2000,12,17)).build());
-		Personer.instance().create("park@me.com", new Person.Builder("Park", "park@me.com", LocalDate.of(1990,02,22)).build());
-
-		
-	}
+//	private void lavList(){
+//
+//		Personer.instance().create("juy@me.com", new Person.Builder("Juyoung", "juy@me.com", LocalDate.of(1982,01,17)).build());
+//		Personer.instance().create("jesp@me.com", new Person.Builder("Jesper", "jesp@me.com", LocalDate.of(1974,07,18)).build());
+//		Personer.instance().create("mina@me.com", new Person.Builder("Mina", "mina@me.com", LocalDate.of(2010,02,17)).build());
+//		Personer.instance().create("kim@me.com", new Person.Builder("Kim", "kim@me.com", LocalDate.of(2000,12,17)).build());
+//		Personer.instance().create("park@me.com", new Person.Builder("Park", "park@me.com", LocalDate.of(1990,02,22)).build());
+//
+//	}
 
 
 }

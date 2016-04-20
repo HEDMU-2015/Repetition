@@ -1,14 +1,10 @@
 package repetition.opgava4;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeFormatterBuilder;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import java.util.concurrent.ConcurrentHashMap;
+
 /**
  * 
  * @author Juyoung Choi
@@ -20,15 +16,20 @@ public class Personer {
 	private static Personer personer = new Personer();
 //  private static final Map<String, Person> cache = new HashMap <>();
 //	http://crunchify.com/hashmap-vs-concurrenthashmap-vs-synchronizedmap-how-a-hashmap-can-be-synchronized-in-java/
-	private static final Map<String, Person> cache = new ConcurrentHashMap <>();
-
-//	private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-
-
+	private static Map<String, Person> cache; // if it is wish  = new ConcurrentHashMap <>(); here : gives ExceptionInInitializerError
+	private PersonMapper personMapper = new PersonMapper();
+	private DataAccess dataAccess;
+	private List<Person> list;
 
 	private Personer(){
-
+		dataAccess = new DataAccess();
+		cache = new ConcurrentHashMap <>();
+		list = new LogicTrans<List<Person>>(dataAccess).transaction(()-> personMapper.getList(dataAccess));
+		for(Person p : list){
+			cache.put( p.getEmail(), p);			
+		}		
 	}
+	
 
 	public static Personer instance(){
 		return personer;
