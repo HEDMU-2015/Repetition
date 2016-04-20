@@ -44,6 +44,8 @@ public class Personer {
 	public List<Person> getList(){
 		List<Person> list = new ArrayList<>();
 		
+//		cache.forEach((k,v)-> System.out.println(k+", "+v)); // to print out each k and v
+		
 		for(Map.Entry<String, Person> entry : cache.entrySet()){
 			list.add(entry.getValue());
 		}
