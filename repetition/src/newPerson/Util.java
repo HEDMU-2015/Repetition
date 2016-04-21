@@ -21,7 +21,7 @@ public class Util<T, R> {
 
 	public List<R> reduce(List<T> list, Function<T, R> function, Predicate<R> predicate) {
 
-		System.out.println(list + "Hejsa");
+		System.out.println(list);
 		return list.stream().map(function).filter(predicate).collect(Collectors.toList());
 
 	}
