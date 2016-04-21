@@ -29,7 +29,7 @@ public class MainTest {
 
 		System.out.println("\n***********************************************\n");
 
-		Util<Person, Person> util = new Util<>();
+		Util<Person, Person> util = new Util<>(); // cannot be static with generics
 		System.out.println("UTIL 25 år : " 
 				+ util.reduce(persons,
 						(Person p) -> p.getAge()> 25,  // without case(Person p) : ambiguity error
