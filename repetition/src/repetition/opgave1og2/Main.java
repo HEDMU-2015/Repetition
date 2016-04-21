@@ -2,11 +2,7 @@ package repetition.opgave1og2;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
-import java.util.stream.Collectors;
-// import static java.util.stream.Collectors.toList; -> .collect(toList())
 
 /**
  * 
@@ -14,95 +10,41 @@ import java.util.stream.Collectors;
  *
  */
 public class Main {
-
 	public static void main(String[] args) {
 
-		Main main = new Main();
-		List<Person> persons = main.lavList();
+		List<Person> persons = new Main().lavList();
 		System.out.println("List : " + persons);
 
 		System.out.println("\n***********************************************\n");
-		
-		System.out.println("main method trial 25 år : " + main.elderThan25(persons));
-		System.out.println("main method trial 25 år with iterator : " + main.elderThan25withIeterator(persons));
-		System.out.println("main method trial 10-20 år : " + main.elder10til20(persons));
-		System.out.println("main method trial 30 år : " + main.elder30(persons));
-		
-		System.out.println("\n***********************************************\n");
-
-		Util<Person, List<Person>> util0 = new Util<>();
-		System.out.println("UTIL 25 år : " 
-				+ util0.reduce(persons,
-						(Person p) -> p.getAge()> 25,  // without case(Person p) : ambiguity error
-						p -> Arrays.asList(p))); // p instead of new Person(p.getName(), p.getEmail(), p.getBirthdate())
-	
 
 
 		Util<Person, Person> util = new Util<>();
-		System.out.println("UTIL 25 år med anden metode : " 
+		System.out.println("UTIL 25 år : " 
 				+ util.reduce(persons,
-						//						p -> new Person(p.getName(), p.getEmail(), p.getBirthdate()), // new Person, or p : same
-						(Person p) -> p, // one should be casted, but which one? first or second? both are ok...
-						p -> p.getAge()> 25  // without case(Person p) : ambiguity error
+						(Person p) -> p.getAge()> 25,  
+						p -> p)); 
+
+
+		System.out.println("UTIL 25 år med anden metode : " 
+				+ util.reduce(persons,						
+						(Person p) -> p, 
+						p -> p.getAge()> 25  
 						));
 
-		Util<Person,String> util1 = new Util<>();
+		System.out.println("\n***********************************************\n");
+
+		Util<Person, String> util1 = new Util<>();
 		System.out.println("UTIL 10-20 år : " 				
 				+ util1.reduce(persons,
 						(Person p) -> p.getAgeAt(LocalDate.of(2020, 01, 01))<=20 && p.getAgeAt(LocalDate.of(2020, 01, 01))>=10,
 						p -> p.getName()));
 
-		Util<Person, Person> util2 = new Util<>();
 		System.out.println("UTIL 30 år : " 
-				+ util2.reduce(persons, 
-						//						(Person p) -> new Person(p.getName(), p.getEmail(), p.getBirthdate()), 
+				+ util.reduce(persons, 
 						(Person p) -> p,
 						p-> p.getAgeAt(LocalDate.of(2010, 01, 01)) < 30));
-		//				+ util2.reduce(persons,
-		//						(Person p) -> p.getAgeAt(LocalDate.of(2010, 01, 01))<30, 
-		//						p -> Arrays.asList(new Person(p.getName(), p.getEmail(), p.getBirthdate())))); // with Util<Person, List<Person>>
-
 	}
 
-	private List<Person> elderThan25(List<Person> persons) {
-		return persons
-				.stream()
-				.filter(person -> person.getAge()>25)
-				.collect(Collectors.toList());		
-
-	}
-
-	private List<Person> elderThan25withIeterator(List<Person> persons){
-		List<Person> result = new ArrayList<>();
-		Iterator<Person> it = persons.iterator();
-		while(it.hasNext()){
-			Person p = it.next();
-			if(p.getAge()<25){
-				result.add(p);
-				//				it.remove(); // not good to change the list : immutable object
-			}		
-		}
-		//		return persons;
-		return result;
-	}
-
-	private List<String> elder10til20(List<Person> persons){
-		return persons
-				.stream()
-				.filter( person -> person.getAgeAt(LocalDate.of(2020, 01, 01))<=20 && person.getAgeAt(LocalDate.of(2020, 01, 01))>=10)
-				.map(person->person.getName())
-				.collect(Collectors.toList());		
-	}	
-
-	private List<Person> elder30(List<Person> persons){
-		return persons
-				.stream()
-//				.map(person-> new Person(person.getName(), person.getEmail(), person.getBirthdate()))
-				.map(person->person)
-				.filter(person -> person.getAgeAt(LocalDate.of(2010, 01, 01)) < 30)	// map - filter can be filter-map, too
-				.collect(Collectors.toList());
-
-	}
 
 	private List<Person> lavList(){
 
