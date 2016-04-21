@@ -57,7 +57,7 @@ public class Main {
 				+ util2.reduce(persons, 
 						//						(Person p) -> new Person(p.getName(), p.getEmail(), p.getBirthdate()), 
 						(Person p) -> p,
-						p-> p.getAgeAt(LocalDate.of(2010, 01, 01)) > 30));
+						p-> p.getAgeAt(LocalDate.of(2010, 01, 01)) < 30));
 		//				+ util2.reduce(persons,
 		//						(Person p) -> p.getAgeAt(LocalDate.of(2010, 01, 01))>30, 
 		//						p -> Arrays.asList(new Person(p.getName(), p.getEmail(), p.getBirthdate())))); // with Util<Person, List<Person>>
@@ -99,7 +99,7 @@ public class Main {
 				.stream()
 //				.map(person-> new Person(person.getName(), person.getEmail(), person.getBirthdate()))
 				.map(person->person)
-				.filter(person -> person.getAgeAt(LocalDate.of(2010, 01, 01))>30)	// map - filter can be filter-map, too
+				.filter(person -> person.getAgeAt(LocalDate.of(2010, 01, 01)) < 30)	// map - filter can be filter-map, too
 				.collect(Collectors.toList());
 
 	}
