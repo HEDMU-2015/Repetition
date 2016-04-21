@@ -22,7 +22,7 @@ public class Main {
 
 		System.out.println("Read with email : " + Personer.instance().read("juy@me.com"));
 		
-		String key = "U";
+		String key = "1974-07-18";
 		
 		System.out.println("search with keyword - " + key + " : " + Personer.instance().search(key));
 			

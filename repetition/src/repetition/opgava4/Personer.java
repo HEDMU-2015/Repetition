@@ -57,7 +57,7 @@ public class Personer {
 		List<Person> result = new ArrayList<>();
 
 		for(Person p : getList()){
-			if(matcher(p.getName(), key) ||  matcher(p.getEmail(), key)){
+			if(matcher(p.getName(), key) ||  matcher(p.getEmail(), key) || (matcher(p.getBirthday().toString(), key))){
 				result.add(p);
 			}			
 		}
