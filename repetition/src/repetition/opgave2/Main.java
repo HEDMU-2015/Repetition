@@ -33,22 +33,17 @@ public class Main {
 
 		// System.out.println("Listen indeholder følgende 10 familiemedlemmer:"
 		// + familie);
-
-		Main ældreEnd25 = new Main();
-		ældreEnd25.elderThan25(familie);
+		
+		Util<Person, Person> util = new Util<>();
+		System.out.println("Disse personer er yngre end 30 år i 2020 "+util.reduce(familie, (Person p)-> p,p->p.getAgeAt(LocalDate.of(2020, 01, 01))<30 ));
+		
+		Util<Person, String> util2 = new Util<>();
+		System.out.println("Disse personer er mellem 10 og 20 år i 2010 "
+		+util2.reduce(familie, 
+				(Person p)->p.getAgeAt(LocalDate.of(2010, 01, 01 ))>=10&&p.getAgeAt(LocalDate.of(2010, 01, 01 ))>=20 , 
+				p-> p.getName()));
 	}
 
-	public  List<Person> elderThan25(List<Person> familie) {
-
-		ArrayList<Person> result = new ArrayList<Person>();
-		for (Person person : familie) {
-			if (person.getAge() > 25) {
-				result.add(person);
-			}
 		}
-		System.out.println(result);
 
-		return null;
-	}
 
-}
