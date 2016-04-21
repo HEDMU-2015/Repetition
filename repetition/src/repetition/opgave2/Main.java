@@ -40,7 +40,7 @@ public class Main {
 		Util<Person, String> util2 = new Util<>();
 		System.out.println("Disse personer er mellem 10 og 20 år i 2010 "
 		+util2.reduce(familie, 
-				(Person p)->p.getAgeAt(LocalDate.of(2010, 01, 01 ))>=10&&p.getAgeAt(LocalDate.of(2010, 01, 01 ))>=20 , 
+				(Person p)->p.getAgeAt(LocalDate.of(2010, 01, 01 ))>=10&&p.getAgeAt(LocalDate.of(2010, 01, 01 ))<=20 , 
 				p-> p.getName()));
 	}
 
