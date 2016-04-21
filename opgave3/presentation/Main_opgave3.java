@@ -14,7 +14,7 @@ public class Main_opgave3 {
 //		Person person = new Person("Dean", "dean@me.com", LocalDate.of(1970,02,03));
 //		personLogic.create(person);
 		
-		System.out.println(personLogic.read(6));
+		System.out.println(personLogic.read(5));
 		
 		
 	}

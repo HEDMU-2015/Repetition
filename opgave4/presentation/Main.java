@@ -31,6 +31,8 @@ public class Main {
 		System.out.println("search with keyword - " + key + " : " + Personer.instance().search(key));
 			
 		System.out.println("\n***********************************************\n");
+		
+//		Personer.instance().delete("dean@me.com");
 
 				
 		Util<Person, Person> util = new Util<>();
