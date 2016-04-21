@@ -36,18 +36,26 @@ public class Personer {
 
 	public void create(String email, Person person){
 		cache.put(email, person);
+		DataAccess dataAccess = new DataAccess();
+		new LogicTrans<Person>(dataAccess).transaction(()-> personMapper.create(dataAccess, person));
 	}
 
 	public Person read(String email){
+		
 		return cache.get(email);
 	}
 
 	public void update(String email, Person person){
 		cache.replace(email, person);
+		DataAccess dataAccess = new DataAccess();
+		new LogicTrans<Person>(dataAccess).transaction(()-> personMapper.update(dataAccess, person));
+
 	}
 
 	public void delete(String email){
 		cache.remove(email);
+		DataAccess dataAccess = new DataAccess();
+		new LogicTrans<>(dataAccess).transaction(()-> personMapper.delete(dataAccess, email));
 	}
 	
 	

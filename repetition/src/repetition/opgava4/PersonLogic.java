@@ -1,4 +1,7 @@
 package repetition.opgava4;
+
+import java.util.List;
+
 /**
  * 
  * @author Juyoung Choi
@@ -6,6 +9,15 @@ package repetition.opgava4;
  */
 
 public class PersonLogic implements CRUD<Person, String> {
+	
+	public List<Person> search (String key){
+		return Personer.instance().search(key);
+	}
+	
+	public List<Person> getList(){
+		return Personer.instance().getList();
+	}
+
 	
 	public void create(Person person){
 		Personer.instance().create(person.getEmail(), person);

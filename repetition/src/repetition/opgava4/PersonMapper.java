@@ -11,12 +11,12 @@ import java.sql.Date;
 
 
 
-public class PersonMapper implements CRUDmedData<Person, Integer> {
+public class PersonMapper implements CRUDmedData<Person, String> {
 	private CloseForSQL close = new CloseForSQL();
 	private final static String CREATE_PERSON = "INSERT INTO person(name, email, birthday) VALUES(?,?,?)";
-	private final static String READ_PERSON = "SELECT * FROM person WHERE id = ?";
+	private final static String READ_PERSON = "SELECT * FROM person WHERE email = ?";
 	private final static String UPDATE_PERSON = "UPDATE person SET name = ? , email = ? , birthday = ? WHERE id = ?";
-	private final static String DELETE_PERSON = "DELETE FROM person WHERE id = ?";
+	private final static String DELETE_PERSON = "DELETE FROM person WHERE email = ?";
 	private final static String LIST_PERSON = "SELECT * FROM person";
 
 	
@@ -66,13 +66,13 @@ public class PersonMapper implements CRUDmedData<Person, Integer> {
 	}
 
 	@Override
-	public Optional<Person> read(DataAccess dataAccess, Integer key) {
+	public Optional<Person> read(DataAccess dataAccess, String key) {
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
 		Optional<Person> person = Optional.empty();
 		try {
 			statement = dataAccess.getConnection().prepareStatement(READ_PERSON);
-			statement.setInt(1, key);
+			statement.setString(1, key);
 			resultSet = statement.executeQuery();
 			if(resultSet.next()){
 				Person person1 = new Person.Builder
@@ -110,11 +110,11 @@ public class PersonMapper implements CRUDmedData<Person, Integer> {
 	}
 
 	@Override
-	public void delete(DataAccess dataAccess, Person domain) {
+	public void delete(DataAccess dataAccess, String key) {
 		PreparedStatement statement = null;
 		try {
 			statement = dataAccess.getConnection().prepareStatement(DELETE_PERSON);			
-			statement.setInt(1, domain.getId());
+			statement.setString(1, key);
 			statement.execute();
 		} catch (SQLException exc) {
 			throw new RuntimeException("Query has failed!" , exc);

@@ -17,6 +17,6 @@ public interface CRUDmedData<D, K> {
 	
 	public void update(DataAccess dataAccess, D domain);
 	
-	public void delete(DataAccess dataAccess, D domain);
+	public void delete(DataAccess dataAccess, K key);
 		
 }
