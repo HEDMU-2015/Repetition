@@ -86,7 +86,8 @@ public class MainTest {
 	private List<String> elder10til20(List<Person> persons){
 		return persons
 				.stream()
-				.filter( person -> person.getAgeAt(LocalDate.of(2020, 01, 01))<=20 && person.getAgeAt(LocalDate.of(2020, 01, 01))>=10)
+				.filter( person -> person.getAgeAt(LocalDate.of(2020, 01, 01))<=20 
+					&& person.getAgeAt(LocalDate.of(2020, 01, 01))>=10)
 				.map(person->person.getName())
 				.collect(Collectors.toList());		
 	}	
