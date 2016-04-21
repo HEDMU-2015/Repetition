@@ -23,14 +23,14 @@ public class DataAccess {
 	public Connection getConnection(){ 
 		try {
 			PreparedStatement create = connection.prepareStatement(
-					"CREATE TABLE IF NOT EXISTS organization(id IDENTITY, name varchar(255) NOT NULL, address varchar(255) NOT NULL, phoneNumber INT, email varchar(255), parentId INT)");
+					"CREATE TABLE IF NOT EXISTS Person( id bigint IDENTITY(start with 1), name varchar(80) NOT NULL, email varchar(255)UNIQUE, birthdate DATE NOT NULL");
 			create.executeUpdate();
+			
 			PreparedStatement create2 = connection.prepareStatement(
-					"CREATE TABLE IF NOT EXISTS user_information(name varchar(255) NOT NULL, role varchar(255) NOT NULL, permissions varchar(255) NOT NULL, organisation varchar(255) NOT NULL, username varchar(255) NOT NULL, password varchar(255) NOT NULL)");
+					"CREATE TABLE IF NOT EXISTS Employment(id IDENTITY,company varchar(255) NOT NULL, employmentdate Date NOT NULL, person FOREIGN KEY");
 			create2.executeUpdate();
-			PreparedStatement create3 = connection.prepareStatement(
-					"CREATE TABLE IF NOT EXISTS Employee(name varchar(255) NOT NULL, salery DOUBLE)");
-			create3.executeUpdate(); 
+			
+			
 		} catch (Exception e) {
 			throw new RuntimeException ("Create DB Failed", e);
 		} finally {
