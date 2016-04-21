@@ -41,7 +41,7 @@ public class Personer {
 	public void create(String email, Person person){
 		cache.put(email, person);
 		DataAccess dataAccess = new DataAccess();
-		new LogicTrans<Person>(dataAccess).transaction(()-> personMapper.create(dataAccess, person));
+		new LogicTrans<>(dataAccess).transaction(()-> personMapper.create(dataAccess, person));
 	}
 
 	public Person read(String email){
@@ -52,7 +52,7 @@ public class Personer {
 	public void update(String email, Person person){
 		cache.replace(email, person);
 		DataAccess dataAccess = new DataAccess();
-		new LogicTrans<Person_opgave3>(dataAccess).transaction(()-> personMapper.update(dataAccess, person));
+		new LogicTrans<>(dataAccess).transaction(()-> personMapper.update(dataAccess, person));
 
 	}
 
