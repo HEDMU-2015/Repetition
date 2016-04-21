@@ -18,7 +18,12 @@ public class Person {
 	}
 	
 	public int getAge() {
-		int age = LocalDate.now().compareTo(birthdate); 
+		int age = Util.differenceInYears(LocalDate.now(),birthdate);
+		return age;
+	}
+	
+	public int getAgeAt(LocalDate date){
+		int age = date.compareTo(birthdate);
 		return age;
 	}
 
