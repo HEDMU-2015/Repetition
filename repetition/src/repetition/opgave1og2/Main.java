@@ -34,7 +34,8 @@ public class Main {
 		System.out.println("UTIL 25 år : " 
 				+ util0.reduce(persons,
 						(Person p) -> p.getAge()> 25,  // without case(Person p) : ambiguity error
-						p -> Arrays.asList(new Person(p.getName(), p.getEmail(), p.getBirthdate()))));
+						p -> Arrays.asList(p))); // p instead of new Person(p.getName(), p.getEmail(), p.getBirthdate())
+	
 
 
 		Util<Person, Person> util = new Util<>();
