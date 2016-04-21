@@ -59,7 +59,7 @@ public class Main {
 						(Person p) -> p,
 						p-> p.getAgeAt(LocalDate.of(2010, 01, 01)) < 30));
 		//				+ util2.reduce(persons,
-		//						(Person p) -> p.getAgeAt(LocalDate.of(2010, 01, 01))>30, 
+		//						(Person p) -> p.getAgeAt(LocalDate.of(2010, 01, 01))<30, 
 		//						p -> Arrays.asList(new Person(p.getName(), p.getEmail(), p.getBirthdate())))); // with Util<Person, List<Person>>
 
 	}
