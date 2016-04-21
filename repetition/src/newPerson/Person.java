@@ -6,20 +6,30 @@ public class Person {
 	private String name;
 	private String email;
 	private LocalDate birthdate;
-	
+	private int age;
+
 	public Person() {
 	}
-	
+
 	public Person(String name, String email, LocalDate birthdate) {
 		this.name = name;
 		this.email = email;
 		this.birthdate = birthdate;
 	}
-	
+
 	public int getAge() {
-		return Period.between(birthdate, LocalDate.now()).getYears();
+		age = Util.differenceInYears(birthdate, LocalDate.now());
+		return age;
 	}
-	
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public int getAgeAt(LocalDate date) {
+		return Period.between(birthdate, date).getYears();
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -37,6 +47,7 @@ public class Person {
 	}
 
 	public LocalDate getBirthdate() {
+
 		return birthdate;
 	}
 
@@ -46,7 +57,7 @@ public class Person {
 
 	@Override
 	public String toString() {
-		return "Person [name=" + name + ", email=" + email + ", birthdate=" + birthdate + "]";
+		return "Navn: " + name + " Email: " + email + " Fødselsdagsdato: " + birthdate + " Alder: " + age;
 	}
-	
+
 }
