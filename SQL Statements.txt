@@ -1,0 +1,14 @@
+SQL Statements for Repetition:
+
+SELECT * FROM Person ORDER BY birthdate ASC;
+
+SELECT * FROM Employment ORDER BY employmentdate DESC;
+
+SELECT name, birthdate FROM Person ;
+
+SELECT company, person AS Employee FROM Employment;
+
+
+
+
+
