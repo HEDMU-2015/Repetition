@@ -1,13 +1,67 @@
 SQL Statements for Repetition:
 
-SELECT * FROM Person ORDER BY birthdate ASC;
-
+SELECT * FROM Person ORDER BY birthdate DESC;
+//ASC
 SELECT * FROM Employment ORDER BY employmentdate DESC;
 
 SELECT name, birthdate FROM Person ;
 
 SELECT company, person AS Employee FROM Employment;
 
+
+
+
+Insert personer
+
+INSERT INTO "PUBLIC"."PERSON"
+( "NAME", "EMAIL", "BIRTHDATE" )
+VALUES ('Marina', 'Marina@gmail.com', '2000-02-16' )
+
+INSERT INTO "PUBLIC"."PERSON"
+( "NAME", "EMAIL", "BIRTHDATE" )
+VALUES ('Anders', 'Anders@gmail.com', '1960-07-22' )
+
+INSERT INTO "PUBLIC"."PERSON"
+( "NAME", "EMAIL", "BIRTHDATE" )
+VALUES ('Knud', 'Knud@gmail.com', '2010-12-10' )
+
+INSERT INTO "PUBLIC"."PERSON"
+( "NAME", "EMAIL", "BIRTHDATE" )
+VALUES ('Sara', 'Sara@gmail.com', '1987-04-02' )
+
+INSERT INTO "PUBLIC"."PERSON"
+( "NAME", "EMAIL", "BIRTHDATE" )
+VALUES ('Susanne', 'Susanne@gmail.com', '1978-09-03' )
+
+INSERT INTO "PUBLIC"."PERSON"
+( "NAME", "EMAIL", "BIRTHDATE" )
+VALUES ('Marianne', 'Marianne@gmail.com', '1995-03-16' )
+
+INSERT INTO "PUBLIC"."PERSON"
+( "NAME", "EMAIL", "BIRTHDATE" )
+VALUES ('Andersine', 'Andersine@gmail.com', '1967-07-22' )
+
+INSERT INTO "PUBLIC"."PERSON"
+( "NAME", "EMAIL", "BIRTHDATE" )
+VALUES ('Rene', 'Rene@gmail.com', '2006-12-10' )
+
+INSERT INTO "PUBLIC"."PERSON"
+( "NAME", "EMAIL", "BIRTHDATE" )
+VALUES ('Mathias', 'Mathias@gmail.com', '1989-04-02' )
+
+INSERT INTO "PUBLIC"."PERSON"
+( "NAME", "EMAIL", "BIRTHDATE" )
+VALUES ('Thomas', 'Thomas@gmail.com', '1979-09-03' )
+
+
+
+INSERT INTO "PUBLIC"."EMPLOYMENT"
+("COMPANY", "EMPLOYMENTDATE", "PERSON" )
+VALUES ('EAMV', '2000-01-01', 2)
+
+INSERT INTO "PUBLIC"."EMPLOYMENT"
+("COMPANY", "EMPLOYMENTDATE", "PERSON" )
+VALUES ('EAMV', '1998-03-08', 4)
 
 
 

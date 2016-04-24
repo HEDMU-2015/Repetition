@@ -11,16 +11,16 @@ public class Main {
 	
 	public static void main(String[] args) {
 		List<Person> persons = new ArrayList<Person>();
-		Person p1 = new Person("Marina ", "@gmail.com", LocalDate.of(2000, 2, 16));
-		Person p2 = new Person("Anders ", "dsa", LocalDate.of(1960, 7, 22));
-		Person p3 = new Person("Knud ", "dsad", LocalDate.of(2010, 12, 10));
-		Person p4 = new Person("Sara ", "dsad", LocalDate.of(1987, 4, 2));
-		Person p5 = new Person("Susanne ", "dsadsa", LocalDate.of(1978, 9, 3));
-		Person p6 = new Person("Marianne ", "@gmail.com", LocalDate.of(1995, 3, 16));
-		Person p7 = new Person("Andersine ", "dsa", LocalDate.of(1967, 7, 22));
-		Person p8 = new Person("Rene ", "dsad", LocalDate.of(2006, 12, 10));
-		Person p9 = new Person("Sarah ", "dsad", LocalDate.of(1989, 4, 2));
-		Person p10 = new Person("Susanne ", "dsadsa", LocalDate.of(1979, 9, 3));
+		Person p1 = new Person("Marina ", "Marina@gmail.com", LocalDate.of(2000, 2, 16));
+		Person p2 = new Person("Anders ", "Anders@gmail.com", LocalDate.of(1960, 7, 22));
+		Person p3 = new Person("Knud ", "Knud@gmail.com", LocalDate.of(2010, 12, 10));
+		Person p4 = new Person("Sara ", "Sara@gmail.com", LocalDate.of(1987, 4, 2));
+		Person p5 = new Person("Susanne ", "Susanne@gmail.com", LocalDate.of(1978, 9, 3));
+		Person p6 = new Person("Marianne ", "Marianne@gmail.com", LocalDate.of(1995, 3, 16));
+		Person p7 = new Person("Andersine ", "Andersine@gmail.com", LocalDate.of(1967, 7, 22));
+		Person p8 = new Person("Rene ", "Rene@gmail.com", LocalDate.of(2006, 12, 10));
+		Person p9 = new Person("Mathias ", "Mathias@gmail.com", LocalDate.of(1989, 4, 2));
+		Person p10 = new Person("Thomas ", "Thomas@gmail.com", LocalDate.of(1979, 9, 3));
 		persons.add(p1);
 		persons.add(p2);
 		persons.add(p3);
