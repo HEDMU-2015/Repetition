@@ -9,4 +9,4 @@
  - Den skal indeholde CRUD-metoder
  - Ved instantiering skal den fylde Mappen med indhold fra databasen
  
- Ret Logik-klassen fra Opgave3, så den benytter denne cache i stedet for databasen.
+ //Ret Logik-klassen fra Opgave3, så den benytter denne cache i stedet for databasen.

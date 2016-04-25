@@ -1,48 +1,59 @@
 package repetition;
 
 import java.time.LocalDate;
-import java.time.Period;
 
 public class Person {
-	private String name;
-	private String email;
-	private LocalDate birthdate;
+	private final String name;
+	private final String email;
+	private final LocalDate birthdate;
 	
-	public Person() {
+	public static class Builder {
+		private String name;
+		private String email;
+		private LocalDate birthdate;
+		
+		public Builder setName(String name) {
+			this.name = name;
+			return this;
+		}
+		public Builder setEmail(String email) {
+			this.email = email;
+			return this;
+		}
+		public Builder setBirthdate(LocalDate birthdate) {
+			this.birthdate = birthdate;
+			return this;
+		}
+		public Person build() {
+			return new Person(this);
+		}
+		
 	}
 	
-	public Person(String name, String email, LocalDate birthdate) {
-		this.name = name;
-		this.email = email;
-		this.birthdate = birthdate;
+	private Person(Builder builder) {
+		this.name = builder.name;
+		this.email = builder.email;
+		this.birthdate = builder.birthdate;
 	}
 	
 	public int getAge() {
-		return Period.between(birthdate, LocalDate.now()).getYears();
+		return Util.differenceInYears(birthdate, LocalDate.now());
 	}
 	
-	public String getName() {
-		return name;
+	public int getAgeAt(LocalDate date) {
+		return Util.differenceInYears(birthdate, date);
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public String getName() {
+		return name;
 	}
 
 	public String getEmail() {
 		return email;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
 	public LocalDate getBirthdate() {
 		return birthdate;
-	}
-
-	public void setBirthdate(LocalDate birthdate) {
-		this.birthdate = birthdate;
 	}
 
 	@Override
