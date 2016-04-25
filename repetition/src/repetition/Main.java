@@ -29,13 +29,27 @@ public class Main {
 		persons.add(new Person("Jette", "jette@gmail.com", LocalDate.of(1940, 7, 28)));
 		persons.add(new Person("Godfred", "godfred@gmail.com", LocalDate.of(1982, 6, 27)));
 		persons.add(new Person("Gudmund", "gudmund@gmail.com", LocalDate.of(1987, 5, 26)));
-
+		
 		between10And20(persons);
 		youngThan30(persons);
 		elderThan25(persons);
+		all(persons);
 		
 	
 		
+		
+	}
+	private static void all(List<Person>persons){
+		System.out.println("");
+		System.out.println("All persons in list");
+		System.out.println("");
+		
+		for (Person person : persons){
+			if (person.getAge() >=0){
+				System.out.println("age: " + person.getAge() + '\t' + " Birthday: " + person.getBirthdate() + '\t'
+						+ " Name: " + person.getName() + '\t' + " Email: " + person.getEmail());
+			}
+		}
 		
 	}
 	private static void between10And20(List<Person>persons){
