@@ -75,7 +75,6 @@ public class GUIMain extends Application {
 			personList= Personer.instance().getList();
 			for (Person p : personList) {
 				personData.add(p);
-				System.out.println(p);
 			}
 
 		} catch (Exception e) {

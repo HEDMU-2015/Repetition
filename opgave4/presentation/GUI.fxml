@@ -9,9 +9,9 @@
    <children>
       <TableView fx:id="outputfelt" layoutX="-140.0" prefHeight="400.0" prefWidth="519.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columns>
-          <TableColumn fx:id="name" prefWidth="114.0" text="NAME" />
-            <TableColumn fx:id="email" prefWidth="157.0" text="EMAIL" />
-            <TableColumn fx:id="birthday" prefWidth="172.0" text="BIRTHDAY" />
+          <TableColumn fx:id="name" editable="false" prefWidth="114.0" text="NAME" />
+            <TableColumn fx:id="email" editable="false" prefWidth="157.0" text="EMAIL" />
+            <TableColumn fx:id="birthday" editable="false" prefWidth="172.0" text="BIRTHDAY" />
         </columns>
       </TableView>
    </children>
