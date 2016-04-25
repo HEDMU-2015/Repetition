@@ -1,0 +1,93 @@
+CREATE TABLE Person
+(
+id bigint IDENTITY,
+name varchar(80) NOT NULL,
+birthdate date NOT NULL,
+)
+
+CREATE TABLE Employment
+(
+id bigint IDENTITY NOT NULL,
+company varchar(50) NOT NULL,
+employmentdate date NOT NULL,
+FOREIGN KEY (id) REFERENCES Person(id),
+)
+
+
+INSERT INTO "PUBLIC"."PERSON"
+( "ID", "NAME", "BIRTHDATE" )
+VALUES (null , 'martin','1995-07-17' )
+
+INSERT INTO "PUBLIC"."PERSON"
+( "ID", "NAME", "BIRTHDATE" )
+VALUES (null , 'Ole','1960-05-13' )
+
+INSERT INTO "PUBLIC"."PERSON"
+( "ID", "NAME", "BIRTHDATE" )
+VALUES (null , 'Jens','1985-12-31' )
+
+INSERT INTO "PUBLIC"."PERSON"
+( "ID", "NAME", "BIRTHDATE" )
+VALUES (null , 'Kim','2010-12-24' )
+
+INSERT INTO "PUBLIC"."PERSON"
+( "ID", "NAME", "BIRTHDATE" )
+VALUES (null , 'martin','1974-01-01' )
+
+INSERT INTO "PUBLIC"."PERSON"
+( "ID", "NAME", "BIRTHDATE" )
+VALUES (null , 'martin','1998-09-11' )
+
+
+INSERT INTO "PUBLIC"."EMPLOYMENT"
+( "ID", "COMPANY", "EMPLOYMENTDATE" )
+VALUES ( 3, 'JAI','2015-11-01' )
+
+INSERT INTO "PUBLIC"."EMPLOYMENT"
+( "ID", "COMPANY", "EMPLOYMENTDATE" )
+VALUES ( 4, 'JAI','2014-11-01' )
+
+INSERT INTO "PUBLIC"."EMPLOYMENT"
+( "ID", "COMPANY", "EMPLOYMENTDATE" )
+VALUES ( 5, 'BO&o','1992-12-12' )
+
+INSERT INTO "PUBLIC"."EMPLOYMENT"
+( "ID", "COMPANY", "EMPLOYMENTDATE" )
+VALUES ( 6, 'Ikast kommune','2000-01-01' )
+
+INSERT INTO "PUBLIC"."EMPLOYMENT"
+( "ID", "COMPANY", "EMPLOYMENTDATE" )
+VALUES ( 7, 'Dan Modul','2003-12-10' )
+
+INSERT INTO "PUBLIC"."EMPLOYMENT"
+( "ID", "COMPANY", "EMPLOYMENTDATE" )
+VALUES ( 8, 'KageHuset','2012-10-13' )
+
+
+
+SELECT Name , Birthdate
+FROM Person
+ORDER BY Birthdate Desc;
+
+
+SELECT Person.name, Employment.company, Employment.Employmentdate
+FROM Person
+INNER JOIN Employment'
+ON Person.ID=Employment.ID
+ORDER BY Employment.Employmentdate Desc ;
+
+
+SELECT Person.name , DATEDIFF('yy', employment.employmentdate, CURRENT_DATE) FROM Person
+INNER JOIN Employment
+ON Person.ID=Employment.ID
+ORDER BY Employment.Employmentdate Desc ;
+
+
+
+select company, count(*) from employment group by company
+
+
+
+
+
+

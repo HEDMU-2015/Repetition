@@ -1,5 +1,7 @@
 package repetition;
 
+import java.sql.Date;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.ArrayList;
@@ -8,12 +10,23 @@ import java.util.function.Predicate;
 
 import com.sun.org.apache.xpath.internal.functions.Function;
 
+import dataAccess.CreateStatements;
+
+
 public class Main {
 	/**
 	 * @author mzk
+	 * @throws SQLException 
 	 */
 	@SuppressWarnings("unchecked")
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
+		CreateStatements createStatements = new CreateStatements();
+		
+		//createStatements.createPerson();
+		createStatements.createEmployement();
+		
+	   
+		
 		Person p;
 		List<Person> personer = new ArrayList<Person>();
 		Main m = new Main();
@@ -58,5 +71,14 @@ public class Main {
 		}
 		return elderThan25list;
 	}
+	
+	public static java.sql.Date convertDate(
+            LocalDate localDate) {
+        java.sql.Date sqlDate = null;
+        if (localDate != null) {
+            sqlDate = Date.valueOf(localDate);
+        }
+        return sqlDate;
+    }
 
 }
