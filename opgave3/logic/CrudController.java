@@ -9,7 +9,7 @@ public interface CrudController {
 
 	public void deletePerson(Person person);
 
-	public Person Person(int id);
+	public Person readPerson(int id);
 
 	public void updatePerson(Person person);
 

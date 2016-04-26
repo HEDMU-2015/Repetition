@@ -44,7 +44,7 @@ public class CrudControllerImpl implements CrudController {
 	}
 
 	@Override
-	public Person Person(int id) {
+	public Person readPerson(int id) {
 		DataAccess dataAccess = null;
 		crudPersonMapper = new CrudPersonMapper();
 		Person person = null;
