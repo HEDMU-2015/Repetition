@@ -15,9 +15,12 @@ import util.DataAccess_opgave3;
 public class EmploymentMapper_opgave3 implements CRUD_opgave3<Employment_opgave3, Integer> {
 	private CloseForSQL_opgave3 close = new CloseForSQL_opgave3();
 	private final static String CREATE_EMPLOYMENT = "INSERT INTO employment(company, employment, person) VALUES(?,?,?)";
-	private final static String READ_EMPLOYMENT = "SELECT id, company, employment, person as personID, person.name, "
-			+ "person.email, person.birthday "
-			+ "FROM employment inner join person on  person = person.id WHERE id = ?";
+//	private final static String READ_EMPLOYMENT = "SELECT id, company, employment, person as personID, person.name, "
+//			+ "person.email, person.birthday "
+//			+ "FROM employment inner join person on  person = person.id WHERE id = ?";
+	
+	private final static String READ_EMPLOYMENT = "SELECT id, company, employment, person " 
+			+ "FROM employment where id = ?";
 	private final static String UPDATE_EMPLOYMENT = "UPDATE employemnt SET company = ? , employment = ? , person = ? WHERE id = ?";
 	private final static String DELETE_EMPLOYMENT = "DELETE FROM employment WHERE id = ?";
 
@@ -48,13 +51,15 @@ public class EmploymentMapper_opgave3 implements CRUD_opgave3<Employment_opgave3
 			statement.setInt(1, key);
 			resultSet = statement.executeQuery();
 			if(resultSet.next()){
-				Employment_opgave3 employemnt1 = new Employment_opgave3();
-				employemnt1.setCompany(resultSet.getString("company"));
-				employemnt1.setEmployment(new java.sql.Date(resultSet.getDate("employment").getTime()).toLocalDate());
-				employemnt1.setPerson(new Person_opgave3(resultSet.getString("name"), 
-						resultSet.getString(resultSet.getString("email")), 
-						new java.sql.Date(resultSet.getDate("birthday").getTime()).toLocalDate()));
-				employment = Optional.of(employemnt1);
+				Employment_opgave3 employment1 = new Employment_opgave3();
+				employment1.setCompany(resultSet.getString("company"));
+				employment1.setEmployment(new java.sql.Date(resultSet.getDate("employment").getTime()).toLocalDate());
+//				employemnt1.setPerson(new Person_opgave3(resultSet.getString("name"), 
+//						resultSet.getString(resultSet.getString("email")), 
+//						new java.sql.Date(resultSet.getDate("birthday").getTime()).toLocalDate()));
+				
+				employment1.setPerson(new PersonMapper_opgave3().read(dataAccess, resultSet.getInt("person")).get());
+				employment = Optional.of(employment1);
 			}
 
 		} catch (SQLException exc) {

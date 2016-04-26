@@ -20,7 +20,7 @@ public class Personer {
 	private static Personer personer = new Personer();
 //  private static final Map<String, Person> cache = new HashMap <>();
 //	http://crunchify.com/hashmap-vs-concurrenthashmap-vs-synchronizedmap-how-a-hashmap-can-be-synchronized-in-java/
-	private static Map<String, Person> cache; // if it is wish  = new ConcurrentHashMap <>(); here : gives ExceptionInInitializerError
+	private Map<String, Person> cache; // if it is wish  = new ConcurrentHashMap <>(); here : gives ExceptionInInitializerError
 	private PersonMapper personMapper = new PersonMapper();
 	private List<Person> list;
 

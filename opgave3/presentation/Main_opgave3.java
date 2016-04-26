@@ -1,5 +1,7 @@
 package presentation;
 
+import logic.EmploymentLogic_opgave3;
+
 //import java.time.LocalDate;
 
 //import domain.Person;
@@ -15,6 +17,9 @@ public class Main_opgave3 {
 //		personLogic.create(person);
 		
 		System.out.println(personLogic.read(5));
+		
+		EmploymentLogic_opgave3 employmentLogic = new EmploymentLogic_opgave3();
+		System.out.println(employmentLogic.read(2));
 		
 		
 	}
