@@ -16,9 +16,9 @@ public class EmploymentLogic_opgave3 {
 		new LogicTrans_opgave3<>(dataAccess).transaction(()-> employmentMapper.create(dataAccess, domain));
 	}
 	
-	public Employment_opgave3 read(int id){
+	public Optional<Employment_opgave3> read(int id){
 		DataAccess_opgave3 dataAccess = new DataAccess_opgave3();		
-		return new LogicTrans_opgave3<Optional<Employment_opgave3>>(dataAccess).transaction(()-> employmentMapper.read(dataAccess, id)).get();
+		return new LogicTrans_opgave3<Optional<Employment_opgave3>>(dataAccess).transaction(()-> employmentMapper.read(dataAccess, id));
 	}
 	
 	public void update(Employment_opgave3 domain){

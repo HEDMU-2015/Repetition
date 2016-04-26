@@ -15,9 +15,9 @@ public class PersonLogic_opgave3 {
 		new LogicTrans_opgave3<>(dataAccess).transaction(()-> personMapper.create(dataAccess, domain));
 	}
 	
-	public Person_opgave3 read(int id){
+	public Optional <Person_opgave3> read(int id){
 		DataAccess_opgave3 dataAccess = new DataAccess_opgave3();		
-		return new LogicTrans_opgave3<Optional<Person_opgave3>>(dataAccess).transaction(()-> personMapper.read(dataAccess, id)).get();
+		return new LogicTrans_opgave3<Optional<Person_opgave3>>(dataAccess).transaction(()-> personMapper.read(dataAccess, id));
 	}
 	
 	public void update(Person_opgave3 domain){
