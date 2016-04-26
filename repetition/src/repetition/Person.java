@@ -10,6 +10,8 @@ public class Person {
 	private LocalDate birthdate;
 	private LocalDate today;
 	private Period difference;
+	private int ID;
+	
 
 	public Person() {
 	}
@@ -54,5 +56,23 @@ public class Person {
 				+ "<<";
 		return toString;
 	}
+	
+	public LocalDate getBirthdate(){
+		return birthdate;
+	}
+	
+	public void setBirthdate(LocalDate birthdate){
+		this.birthdate = birthdate;
+	}
+	
+	public int getID(){
+		return ID;
+	}
+	
+	public void setID(int ID){
+		this.ID=ID;
+	}
+	
+	
 
 }

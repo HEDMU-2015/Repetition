@@ -11,6 +11,7 @@ import java.util.function.Predicate;
 import com.sun.org.apache.xpath.internal.functions.Function;
 
 import dataAccess.CreateStatements;
+import dataAccess.DataAccessForSQL;
 
 
 public class Main {
@@ -18,16 +19,25 @@ public class Main {
 	 * @author mzk
 	 * @throws SQLException 
 	 */
-	@SuppressWarnings("unchecked")
+	
 	public static void main(String[] args) throws SQLException {
-		CreateStatements createStatements = new CreateStatements();
+		//CreateStatements createStatements = new CreateStatements();
 		
 		//createStatements.createPerson();
-		createStatements.createEmployement();
+		//createStatements.createEmployement();
+		DataAccessForSQL da = new DataAccessForSQL();
+		CrudPerson cp = new CrudPerson();
+		Person ps = new Person("HAHAHAHA","Email",LocalDate.of(1995, 01, 01));
+		//cp.create(da,ps);
+		System.out.println(cp.read(da).toString());
+		ps.setID(2);
+		//cp.update(da, ps);
+		cp.delete(da, ps);
+		
 		
 	   
 		
-		Person p;
+		/*Person p;
 		List<Person> personer = new ArrayList<Person>();
 		Main m = new Main();
 
@@ -59,6 +69,8 @@ public class Main {
 
 		System.out.println("under 30 2020 1/1 " + utility2.reduce2(personer, pr -> pr,
 				pl -> pl.getAgeAt(LocalDate.of(2020, 1, 1)) < 30)); // reduce2
+				
+				*/
 
 	}
 

@@ -11,7 +11,7 @@ public class DataAccessForSQL {
 	public DataAccessForSQL() {
 		try {
 			connection = DriverManager.getConnection("jdbc:hsqldb:hsql://localhost/mydatabase", "SA", "");
-			connection.setAutoCommit(false);
+			connection.setAutoCommit(true);
 		} catch (SQLException e) {
 			throw new RuntimeException("No connection to the database", e);
 		}
