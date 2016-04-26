@@ -19,7 +19,7 @@ public class Main_opgave3 {
 		System.out.println(personLogic.read(5));
 		
 		EmploymentLogic_opgave3 employmentLogic = new EmploymentLogic_opgave3();
-		System.out.println(employmentLogic.read(9)); // not with NoSuchElementException but just Optional.empty
+		System.out.println(employmentLogic.read(2)); // not with NoSuchElementException but just Optional.empty
 		
 		
 	}

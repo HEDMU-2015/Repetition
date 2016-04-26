@@ -52,6 +52,7 @@ public class EmploymentMapper_opgave3 implements CRUD_opgave3<Employment_opgave3
 			resultSet = statement.executeQuery();
 			if(resultSet.next()){
 				Employment_opgave3 employment1 = new Employment_opgave3();
+				employment1.setId(resultSet.getInt("id"));
 				employment1.setCompany(resultSet.getString("company"));
 				employment1.setEmployment(new java.sql.Date(resultSet.getDate("employment").getTime()).toLocalDate());
 //				employemnt1.setPerson(new Person_opgave3(resultSet.getString("name"), 
