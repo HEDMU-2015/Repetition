@@ -1,0 +1,35 @@
+CREATE TABLE Person (
+id BIGINT IDENTITY,
+name VARCHAR(80) NOT NULL,
+email VARCHAR(255),
+birthdate DATE NOT NULL
+);
+
+ALTER TABLE Person ALTER COLUMN id RESTART WITH 1
+
+CREATE UNIQUE INDEX uidx_Person_email ON Person(email);
+
+CREATE TALBE Employment (
+id BIGINT IDENTITY,
+company VARCHAR(50) NOT NULL,
+employmentdate DATE NOT NULL,
+person BIGINT FOREIGN KEY REFERENCES Person(id) NOT NULL
+);
+
+ALTER TABLE Employment ALTER COLUMN id RESTART WITH 1
+
+SELECT * FROM "PUBLIC"."PERSON" 
+ORDER BY birthdate DESC
+
+SELECT * FROM "PUBLIC"."EMPLOYMENT"
+ORDER BY employmentdate DESC
+
+SELECT person.name, person.birthdate
+FROM "PUBLIC"."EMPLOYMENT"
+INNER JOIN Person
+ON employment.person = person.id
+where employment.company = 'Proshop';
+
+SELECT company, COUNT(company)
+FROM "PUBLIC"."EMPLOYMENT"
+GROUP BY company
